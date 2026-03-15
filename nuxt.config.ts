@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    public: {
+      gaMeasurementId: process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID || '',
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

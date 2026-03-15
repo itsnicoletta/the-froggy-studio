@@ -853,6 +853,7 @@ function writeConsentCookie(value: 'analytics' | 'necessary') {
     `${consentCookieName}=${value}; Max-Age=${consentMaxAge}; Path=/; SameSite=Lax; Secure`
   cookieConsent.value = value
   showCookieBanner.value = false
+  window.dispatchEvent(new CustomEvent('tfs-consent-updated', { detail: { value } }))
 }
 
 function closeSuccessPopup() {

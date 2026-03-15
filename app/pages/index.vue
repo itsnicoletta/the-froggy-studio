@@ -225,6 +225,7 @@
             netlify-honeypot="bot-field"
             action="/?submitted=true#contact"
             class="panel-card grid gap-4 bg-white/85 p-4 md:gap-5 md:p-5"
+            @submit.prevent="submitContactForm"
           >
             <input type="hidden" name="form-name" value="contact">
             <p class="hidden">
@@ -289,8 +290,14 @@
               />
             </label>
 
+            <p v-if="contactFormError" class="px-1 text-sm font-bold text-tertiary">
+              {{ contactFormError }}
+            </p>
+
             <div class="pt-1">
-              <BaseButton type="submit">Send request</BaseButton>
+              <BaseButton type="submit">
+                {{ isSubmittingContactForm ? 'Sending...' : 'Send request' }}
+              </BaseButton>
             </div>
           </form>
         </div>
@@ -745,7 +752,12 @@ const teamMembers = [
   },
 ]
 
-const isSuccessPopupOpen = computed(() => route.query.submitted === 'true')
+const hasSubmittedSuccessfully = ref(false)
+const isSubmittingContactForm = ref(false)
+const contactFormError = ref('')
+const isSuccessPopupOpen = computed(
+  () => route.query.submitted === 'true' || hasSubmittedSuccessfully.value,
+)
 const isPrivacyModalOpen = ref(false)
 const isCookieModalOpen = ref(false)
 const showCookieBanner = ref(false)
@@ -844,6 +856,7 @@ function writeConsentCookie(value: 'analytics' | 'necessary') {
 }
 
 function closeSuccessPopup() {
+  hasSubmittedSuccessfully.value = false
   const { submitted, ...restQuery } = route.query
 
   void router.replace({
@@ -878,6 +891,53 @@ function acceptAnalyticsCookies() {
 
 function acceptNecessaryCookies() {
   writeConsentCookie('necessary')
+}
+
+async function submitContactForm(event: Event) {
+  const form = event.target as HTMLFormElement | null
+
+  if (!form || isSubmittingContactForm.value) {
+    return
+  }
+
+  isSubmittingContactForm.value = true
+  contactFormError.value = ''
+
+  try {
+    const formData = new FormData(form)
+    const encodedData = new URLSearchParams()
+
+    for (const [key, value] of formData.entries()) {
+      encodedData.append(key, String(value))
+    }
+
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: encodedData.toString(),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Netlify form submission failed with status ${response.status}`)
+    }
+
+    form.reset()
+    hasSubmittedSuccessfully.value = true
+    void router.replace({
+      path: route.path,
+      hash: '#contact',
+      query: route.query,
+    })
+  }
+  catch (error) {
+    console.error(error)
+    contactFormError.value = 'Something went wrong. Please try again in a moment.'
+  }
+  finally {
+    isSubmittingContactForm.value = false
+  }
 }
 
 function toggleFaqItem(itemTitle: string) {

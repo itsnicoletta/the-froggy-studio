@@ -32,9 +32,9 @@
             <div class="mt-3 space-y-2 text-sm text-text-muted">
               <a
                 class="block transition hover:text-white"
-                href="mailto:hello@thefroggystudio.com"
+                href="mailto:thefroggystudiosl@gmail.com"
               >
-                hello@thefroggystudio.com
+                thefroggystudiosl@gmail.com
               </a>
               <p>Sri Lanka and remote-friendly</p>
               <p>B2B, B2C, and retail projects</p>
@@ -42,9 +42,32 @@
           </div>
         </div>
       </div>
-      <div class="px-4 pb-4 pt-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/55 md:px-6">
-        The Froggy Studio
+      <div class="flex flex-col gap-3 px-4 pb-4 pt-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/55 md:flex-row md:items-center md:justify-between md:px-6">
+        <span>The Froggy Studio</span>
+        <div class="flex flex-wrap gap-3 text-[0.72rem]">
+          <button
+            type="button"
+            class="cursor-pointer transition hover:text-white"
+            @click="$emit('openPrivacy')"
+          >
+            Privacy Policy
+          </button>
+          <button
+            type="button"
+            class="cursor-pointer transition hover:text-white"
+            @click="$emit('openCookies')"
+          >
+            Cookie Policy
+          </button>
+        </div>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+defineEmits<{
+  openPrivacy: []
+  openCookies: []
+}>()
+</script>

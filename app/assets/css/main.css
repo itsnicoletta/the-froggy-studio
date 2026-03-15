@@ -80,12 +80,7 @@
 
   body {
     min-height: 100vh;
-    background:
-      radial-gradient(circle at top left, color-mix(in srgb, var(--palette-16) 18%, white) 0, transparent 28%),
-      radial-gradient(circle at top right, color-mix(in srgb, var(--palette-15) 14%, white) 0, transparent 24%),
-      radial-gradient(circle at 18% 88%, color-mix(in srgb, var(--palette-23) 22%, white) 0, transparent 28%),
-      radial-gradient(circle at 82% 96%, color-mix(in srgb, var(--palette-16) 26%, white) 0, transparent 30%),
-      linear-gradient(180deg, #fffefb 0%, #f7fbff 42%, #eef8ff 74%, #f7fff7 100%);
+    background: #c9efe7;
     color: var(--color-text);
     font-family: var(--font-sans);
   }
@@ -125,11 +120,69 @@
   @layer base {
     html {
       scroll-padding-top: 7rem;
+      scrollbar-color: var(--color-surface) color-mix(in srgb, var(--color-card) 82%, white);
+      scrollbar-width: auto;
     }
 
     [id] {
       scroll-margin-top: 7rem;
     }
+  }
+
+  html::-webkit-scrollbar {
+    width: 18px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--color-card) 82%, white);
+    border-left: 2px solid var(--color-border);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      var(--color-surface) 0%,
+      color-mix(in srgb, var(--color-surface) 88%, var(--color-quinary)) 100%
+    );
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-surface) 92%, var(--color-primary)) 0%,
+      color-mix(in srgb, var(--color-surface) 84%, var(--color-secondary)) 100%
+    );
+  }
+
+  html::-webkit-scrollbar-button:single-button {
+    display: block;
+    height: 18px;
+    background-color: color-mix(in srgb, var(--color-card) 82%, white);
+    border-left: 2px solid var(--color-border);
+    border-right: 2px solid var(--color-border);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 9px 9px;
+  }
+
+  html::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-top: 2px solid var(--color-border);
+    background-image: linear-gradient(135deg, transparent 50%, var(--color-border) 50%),
+      linear-gradient(225deg, transparent 50%, var(--color-border) 50%);
+    background-position:
+      calc(50% - 3px) calc(50% + 1px),
+      calc(50% + 3px) calc(50% + 1px);
+  }
+
+  html::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-bottom: 2px solid var(--color-border);
+    background-image: linear-gradient(315deg, transparent 50%, var(--color-border) 50%),
+      linear-gradient(45deg, transparent 50%, var(--color-border) 50%);
+    background-position:
+      calc(50% - 3px) calc(50% - 1px),
+      calc(50% + 3px) calc(50% - 1px);
   }
 }
 
@@ -227,6 +280,67 @@
     width: 0.25rem;
     border-radius: 999px;
     background: var(--color-card);
+  }
+
+  .policy-copy h3 {
+    margin-top: 1.25rem;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .policy-copy ul {
+    padding-left: 1.15rem;
+    list-style: disc;
+  }
+
+  .policy-copy a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 90rem) and (max-height: 56rem) {
+  @layer components {
+    .hero-grid {
+      min-height: 70svh;
+      gap: 1.5rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.6rem, 4.8vw, 5.4rem);
+    }
+
+    .hero-animation-shell {
+      min-height: 24rem;
+    }
+
+    .hero-animation {
+      height: 29rem;
+      width: 54rem;
+    }
+
+    .hero-animation-fallback img {
+      width: 54rem;
+    }
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 64rem) and (min-height: 57rem) {
+  @layer components {
+    .hero-animation-shell {
+      min-height: 25rem;
+    }
+
+    .hero-animation {
+      height: 31rem;
+      width: 48rem;
+    }
+
+    .hero-animation-fallback img {
+      width: 48rem;
+    }
   }
 }
 

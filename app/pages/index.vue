@@ -223,7 +223,7 @@
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/?submitted=true#contact"
+            action="/__forms.html"
             class="panel-card grid gap-4 bg-white/85 p-4 md:gap-5 md:p-5"
             @submit.prevent="submitContactForm"
           >
@@ -911,7 +911,7 @@ async function submitContactForm(event: Event) {
       encodedData.append(key, String(value))
     }
 
-    const response = await fetch('/', {
+    const response = await fetch('/__forms.html', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

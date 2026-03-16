@@ -448,7 +448,6 @@ useHead({
     lang: 'en',
   },
   link: [
-    { rel: 'icon', type: 'image/svg+xml', href: '/favicon_the_froggy_studio.svg' },
     { rel: 'canonical', href: canonicalUrl },
   ],
   meta: [

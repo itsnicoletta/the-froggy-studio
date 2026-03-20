@@ -20,10 +20,11 @@
           <div>
             <h3 class="font-display text-xl">Explore</h3>
             <div class="mt-3 space-y-2 text-sm text-text-muted">
-              <a class="block transition hover:text-white" href="#services">Services</a>
-              <a class="block transition hover:text-white" href="#process">Process</a>
-              <a class="block transition hover:text-white" href="#faq">FAQ</a>
-              <a class="block transition hover:text-white" href="#contact">Contact</a>
+              <a class="block transition hover:text-white" :href="servicesHref">Services</a>
+              <a class="block transition hover:text-white" :href="processHref">Process</a>
+              <a class="block transition hover:text-white" href="/blog">Blog</a>
+              <a class="block transition hover:text-white" :href="faqHref">FAQ</a>
+              <a class="block transition hover:text-white" :href="contactHref">Contact</a>
             </div>
           </div>
 
@@ -66,6 +67,13 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
+const homePrefix = computed(() => (route.path === '/' ? '' : '/'))
+const servicesHref = computed(() => `${homePrefix.value}/#services`.replace('//', '/'))
+const processHref = computed(() => `${homePrefix.value}/#process`.replace('//', '/'))
+const faqHref = computed(() => `${homePrefix.value}/#faq`.replace('//', '/'))
+const contactHref = computed(() => `${homePrefix.value}/#contact`.replace('//', '/'))
+
 defineEmits<{
   openPrivacy: []
   openCookies: []

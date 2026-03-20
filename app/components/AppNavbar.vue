@@ -7,7 +7,7 @@
       />
       <div class="panel-card bg-card/95 px-4 py-3 backdrop-blur">
         <div class="flex items-center justify-between gap-4 md:hidden">
-          <a href="#top" class="font-display text-lg font-black leading-none sm:text-xl">
+          <a :href="topHref" class="font-display text-lg font-black leading-none sm:text-xl">
             The Froggy Studio
           </a>
 
@@ -35,24 +35,25 @@
               </span>
             </button>
 
-            <BaseButton href="#contact" variant="dark">Let's talk</BaseButton>
+            <BaseButton :href="contactHref" variant="dark">Let's talk</BaseButton>
           </div>
         </div>
 
         <div class="hidden items-center justify-between gap-6 md:grid md:grid-cols-[auto_1fr_auto]">
-          <a href="#top" class="font-display text-xl font-black leading-none">
+          <a :href="topHref" class="font-display text-xl font-black leading-none">
             The Froggy Studio
           </a>
 
           <nav class="flex items-center justify-center gap-6 text-sm font-bold">
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#faq">FAQ</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a :href="servicesHref">Services</a>
+            <a :href="processHref">Process</a>
+            <a href="/blog">Blog</a>
+            <a :href="faqHref">FAQ</a>
+            <a :href="aboutHref">About</a>
+            <a :href="contactHref">Contact</a>
           </nav>
 
-          <BaseButton href="#contact" variant="dark">Let's talk</BaseButton>
+          <BaseButton :href="contactHref" variant="dark">Let's talk</BaseButton>
         </div>
 
         <Transition
@@ -67,19 +68,22 @@
             v-if="isOpen"
             class="mt-4 grid gap-2 rounded-[1.25rem] border-2 border-border bg-white p-2 md:hidden"
           >
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="#services" @click="closeMenu">
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="servicesHref" @click="closeMenu">
               Services
             </a>
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="#process" @click="closeMenu">
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="processHref" @click="closeMenu">
               Process
             </a>
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="#faq" @click="closeMenu">
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="/blog" @click="closeMenu">
+              Blog
+            </a>
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="faqHref" @click="closeMenu">
               FAQ
             </a>
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="#about" @click="closeMenu">
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="aboutHref" @click="closeMenu">
               About
             </a>
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="#contact" @click="closeMenu">
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="contactHref" @click="closeMenu">
               Contact
             </a>
           </nav>
@@ -90,7 +94,15 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const isOpen = ref(false)
+const homePrefix = computed(() => (route.path === '/' ? '' : '/'))
+const topHref = computed(() => `${homePrefix.value}/#top`.replace('//', '/'))
+const servicesHref = computed(() => `${homePrefix.value}/#services`.replace('//', '/'))
+const processHref = computed(() => `${homePrefix.value}/#process`.replace('//', '/'))
+const faqHref = computed(() => `${homePrefix.value}/#faq`.replace('//', '/'))
+const aboutHref = computed(() => `${homePrefix.value}/#about`.replace('//', '/'))
+const contactHref = computed(() => `${homePrefix.value}/#contact`.replace('//', '/'))
 
 function closeMenu() {
   isOpen.value = false

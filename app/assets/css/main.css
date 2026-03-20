@@ -299,6 +299,118 @@
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
+
+  .blog-prose {
+    color: color-mix(in srgb, var(--color-text) 88%, transparent);
+    font-size: 1rem;
+    line-height: 1.72;
+    text-wrap: pretty;
+  }
+
+  .blog-prose h2,
+  .blog-prose h3,
+  .blog-prose h4 {
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .blog-prose h2 a,
+  .blog-prose h3 a,
+  .blog-prose h4 a {
+    text-decoration: none;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .blog-prose h2 {
+    font-size: clamp(1.65rem, 2.35vw, 2.1rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .blog-prose h3 {
+    font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .blog-prose h4 {
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-prose p,
+  .blog-prose ul,
+  .blog-prose ol,
+  .blog-prose blockquote {
+    margin-top: 0.75rem;
+  }
+
+  .blog-prose p + p,
+  .blog-prose p + ul,
+  .blog-prose p + ol,
+  .blog-prose ul + p,
+  .blog-prose ol + p {
+    margin-top: 1rem;
+  }
+
+  .blog-prose ul {
+    list-style: disc;
+    padding-left: 1.05rem;
+  }
+
+  .blog-prose ol {
+    list-style: decimal;
+    padding-left: 1.05rem;
+  }
+
+  .blog-prose li + li {
+    margin-top: 0.28rem;
+  }
+
+  .blog-prose li::marker {
+    color: var(--color-tertiary);
+  }
+
+  .blog-prose p:first-child,
+  .blog-prose h2 + p,
+  .blog-prose h3 + p,
+  .blog-prose h4 + p {
+    margin-top: 0;
+  }
+
+  .blog-prose a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+  }
+
+  .blog-prose strong {
+    color: var(--color-text);
+    font-weight: 800;
+  }
+
+  .blog-prose blockquote {
+    border-left: 4px solid var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 12%, white);
+    border-radius: 0 1rem 1rem 0;
+    padding: 0.8rem 0.95rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .blog-prose hr {
+    margin: 1.6rem 0;
+    border: 0;
+    border-top: 2px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+  }
 }
 
 @media (min-width: 48rem) and (max-width: 90rem) and (max-height: 56rem) {

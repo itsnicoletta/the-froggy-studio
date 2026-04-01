@@ -56,7 +56,11 @@
 
       <section class="site-shell">
         <div class="grid gap-8 md:gap-10 lg:grid-cols-[0.64fr_1.36fr] lg:items-start">
-          <aside class="space-y-5 lg:sticky lg:top-28">
+          <article class="order-1 panel-card bg-card p-5 md:p-8 lg:order-2 lg:p-10 xl:p-12">
+            <ContentRenderer :value="post" class="blog-prose max-w-3xl" />
+          </article>
+
+          <aside class="order-2 space-y-5 lg:order-1 lg:sticky lg:top-28">
             <div class="panel-card bg-surface p-5 text-text-inverse md:p-6">
               <p class="eyebrow border-white/15 bg-white/10 text-text-inverse">Search intent</p>
               <p class="mt-4 text-[1.02rem] leading-8 text-white">
@@ -65,20 +69,36 @@
             </div>
 
             <div class="panel-card bg-card p-5 md:p-6">
-              <p class="text-sm font-bold uppercase tracking-[0.16em] text-text/55">Next step</p>
+              <p class="text-sm font-bold uppercase tracking-[0.16em] text-text/55">Need help?</p>
+              <h2 class="mt-3 max-w-[14ch] text-[1.65rem] leading-[0.95] text-text">
+                Want a website that gets found and brings better enquiries?
+              </h2>
               <p class="mt-3 text-sm leading-7 text-text/75">
-                If this article sounds like your current situation, we can help turn it into a clearer site,
-                stronger message, and a structure that is easier to grow.
+                We help businesses turn unclear websites into clearer, more searchable, and more convincing digital experiences.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-text/75">
+                <li>Clearer positioning and messaging</li>
+                <li>Stronger SEO and AIO foundations</li>
+                <li>A contact path that feels obvious</li>
+              </ul>
+              <div class="pt-5">
+                <BaseButton href="/#contact">Book a discovery call</BaseButton>
+              </div>
+              <p class="pt-3 text-xs leading-5 text-text/55">
+                Share your website and we will help you understand what to improve first.
+              </p>
+            </div>
+
+            <div class="panel-card bg-accent-warm p-5 md:p-6">
+              <p class="text-sm font-bold uppercase tracking-[0.16em] text-text/55">Prefer email?</p>
+              <p class="mt-3 text-sm leading-7 text-text/75">
+                Send us your site and what you want it to do better. We will reply with the next step.
               </p>
               <div class="pt-4">
-                <BaseButton href="/#contact">Talk to Froggy</BaseButton>
+                <BaseButton href="mailto:thefroggystudiosl@gmail.com" variant="outline">Email Froggy Studio</BaseButton>
               </div>
             </div>
           </aside>
-
-          <article class="panel-card bg-card p-5 md:p-8 lg:p-10 xl:p-12">
-            <ContentRenderer :value="post" class="blog-prose max-w-3xl" />
-          </article>
         </div>
       </section>
 
@@ -92,29 +112,28 @@
           </div>
 
           <div class="grid gap-6 md:gap-7 lg:grid-cols-2">
-            <article
+            <NuxtLink
               v-for="entry in relatedPosts"
               :key="entry.path"
-              class="panel-card bg-card p-5 md:p-6"
+              :to="entry.path"
+              class="panel-card group block bg-card p-5 transition duration-200 hover:-translate-y-1 md:p-6"
             >
-                <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-text/55">
+                <div class="space-y-3 text-xs font-bold uppercase tracking-[0.16em] text-text/55">
                   <span
                     class="inline-flex rounded-full border-2 border-border px-4 py-2 text-sm font-bold uppercase tracking-[0.16em]"
                     :class="categoryChipClass(entry.category)"
                   >
                     {{ entry.category }}
                   </span>
-                  <span>{{ formatDate(entry.date) }}</span>
+                  <p>{{ formatDate(entry.date) }}</p>
                 </div>
-              <h3 class="mt-4 text-[1.7rem] leading-[0.95] sm:text-[2rem]">
-                <NuxtLink :to="entry.path">
-                  {{ entry.title }}
-                </NuxtLink>
+              <h3 class="mt-4 text-[1.7rem] leading-[0.95] transition group-hover:text-quinary sm:text-[2rem]">
+                {{ entry.title }}
               </h3>
               <p class="mt-3 text-sm leading-7 text-text/75">
                 {{ entry.excerpt }}
               </p>
-            </article>
+            </NuxtLink>
           </div>
         </div>
       </section>

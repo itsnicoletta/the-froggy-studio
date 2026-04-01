@@ -11,12 +11,11 @@
                 Froggy Blog
               </p>
               <h1 class="max-w-3xl text-[2.6rem] leading-[0.9] sm:text-6xl">
-                Articles built to answer the questions people actually search for.
+                Useful articles about websites, SEO, AIO, and digital growth.
               </h1>
               <p class="max-w-2xl text-[0.98rem] leading-7 text-text-muted sm:text-base">
-                We use the blog to publish practical takes on websites, SEO, brand clarity, AI,
-                and digital growth. The goal is simple:
-                <strong class="text-white">be useful first, then be discoverable.</strong>
+                We publish clear, practical content for businesses that want to get found,
+                explain what they do better, and turn more visits into real enquiries.
               </p>
             </div>
           </div>
@@ -38,27 +37,26 @@
         </div>
 
         <div class="grid gap-6 md:gap-7 lg:grid-cols-3 lg:gap-8">
-          <article
+          <NuxtLink
             v-for="post in filteredPosts"
             :key="post.path"
-            class="panel-card flex h-full flex-col bg-card p-6 md:p-7"
+            :to="post.path"
+            class="panel-card group flex h-full flex-col bg-card p-6 transition duration-200 hover:-translate-y-1 md:p-7"
           >
             <div class="space-y-5">
-              <div class="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-text/60">
+              <div class="space-y-3 text-xs font-bold uppercase tracking-[0.16em] text-text/60">
                 <span
                   class="inline-flex rounded-full border-2 border-border px-4 py-2 text-sm font-bold uppercase tracking-[0.16em]"
                   :class="categoryChipClass(post.category)"
                 >
                   {{ post.category }}
                 </span>
-                <span>{{ formatDate(post.date) }}</span>
+                <p>{{ formatDate(post.date) }}</p>
               </div>
 
               <div class="space-y-4">
-                <h2 class="text-[1.9rem] leading-[0.94] sm:text-[2.15rem]">
-                  <NuxtLink :to="post.path">
-                    {{ post.title }}
-                  </NuxtLink>
+                <h2 class="text-[1.9rem] leading-[0.94] transition group-hover:text-quinary sm:text-[2.15rem]">
+                  {{ post.title }}
                 </h2>
                 <p class="text-[0.98rem] leading-7 text-text/75">
                   {{ post.excerpt }}
@@ -67,9 +65,11 @@
             </div>
 
             <div class="mt-auto pt-8">
-              <BaseButton :href="post.path">Read article</BaseButton>
+              <span class="inline-flex items-center justify-center rounded-full border-2 border-border bg-primary px-4 py-2.5 text-sm font-extrabold tracking-tight whitespace-nowrap transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[8px_8px_0_0_var(--color-tertiary)] sm:px-5 sm:py-3">
+                Read article
+              </span>
             </div>
-          </article>
+          </NuxtLink>
         </div>
       </section>
     </main>

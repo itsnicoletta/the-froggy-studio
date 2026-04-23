@@ -47,10 +47,10 @@
           <nav class="flex items-center justify-center gap-6 text-sm font-bold">
             <a :href="servicesHref">Services</a>
             <a :href="processHref">Process</a>
+            <a href="/projects">Projects</a>
             <a href="/blog">Blog</a>
             <a :href="faqHref">FAQ</a>
             <a :href="aboutHref">About</a>
-            <a :href="contactHref">Contact</a>
           </nav>
 
           <BaseButton :href="contactHref" variant="dark">Let's talk</BaseButton>
@@ -74,6 +74,9 @@
             <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="processHref" @click="closeMenu">
               Process
             </a>
+            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="/projects" @click="closeMenu">
+              Projects
+            </a>
             <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" href="/blog" @click="closeMenu">
               Blog
             </a>
@@ -82,9 +85,6 @@
             </a>
             <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="aboutHref" @click="closeMenu">
               About
-            </a>
-            <a class="rounded-full px-4 py-3 text-sm font-bold transition hover:bg-accent-soft" :href="contactHref" @click="closeMenu">
-              Contact
             </a>
           </nav>
         </Transition>

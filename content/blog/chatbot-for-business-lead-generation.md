@@ -7,7 +7,7 @@ updated: 2025-11-14
 category: Automation
 question: Are chatbots actually useful for small businesses?
 author: The Froggy Studio
-published: true
+published: false
 ---
 
 Chatbots are often framed as a trend, but the real value is much simpler.

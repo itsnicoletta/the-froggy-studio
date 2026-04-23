@@ -22,6 +22,7 @@
             <div class="mt-3 space-y-2 text-sm text-text-muted">
               <a class="block transition hover:text-white" :href="servicesHref">Services</a>
               <a class="block transition hover:text-white" :href="processHref">Process</a>
+              <a class="block transition hover:text-white" href="/projects">Projects</a>
               <a class="block transition hover:text-white" href="/blog">Blog</a>
               <a class="block transition hover:text-white" :href="faqHref">FAQ</a>
               <a class="block transition hover:text-white" :href="contactHref">Contact</a>

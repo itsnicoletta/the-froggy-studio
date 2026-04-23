@@ -274,8 +274,8 @@
                 <option value="Art Direction">Art Direction</option>
                 <option value="Websites">Websites</option>
                 <option value="Marketing">Marketing</option>
-                <option value="AI Chatbot">AI Chatbot</option>
                 <option value="Product Design">Product Design</option>
+                <option value="Projects">Projects</option>
                 <option value="Not sure yet">Not sure yet</option>
               </select>
             </label>
@@ -414,7 +414,7 @@ const structuredData = [
     image: ogImage,
     email: 'mailto:thefroggystudiosl@gmail.com',
     description:
-      'Creative and marketing agency in Sri Lanka for Art Direction, Websites, Marketing, AI Chatbot, Product Design, and SEO-ready digital experiences.',
+      'Creative and marketing agency in Sri Lanka for Art Direction, Websites, Marketing, Product Design, and SEO-ready digital experiences.',
     areaServed: [
       { '@type': 'Country', name: 'Sri Lanka' },
       { '@type': 'Place', name: 'Worldwide' },
@@ -427,7 +427,6 @@ const structuredData = [
       'SEO',
       'Art direction',
       'Product design',
-      'AI chatbot',
       'Frontend development',
       'Backend development',
     ],
@@ -438,7 +437,6 @@ const structuredData = [
       'SEO foundations',
       'Art direction',
       'Product design',
-      'AI chatbot design',
     ],
   },
 ]
@@ -468,10 +466,10 @@ useHead({
 useSeoMeta({
   title: 'Marketing Agency in Sri Lanka for Web Design, Branding & SEO | The Froggy Studio',
   description:
-    'The Froggy Studio is a marketing agency in Sri Lanka helping brands launch bold websites, stronger positioning, and clear digital experiences through Art Direction, Marketing, AI Chatbot, Product Design, and SEO-ready execution.',
+    'The Froggy Studio is a marketing agency in Sri Lanka helping brands launch bold websites, stronger positioning, and clear digital experiences through Art Direction, Marketing, Product Design, and SEO-ready execution.',
   ogTitle: 'Marketing Agency in Sri Lanka for Web Design, Branding & SEO | The Froggy Studio',
   ogDescription:
-    'Marketing agency in Sri Lanka for Art Direction, Web Design, Marketing, AI Chatbot, and Product Design. Built for brands that want clarity, personality, and growth.',
+    'Marketing agency in Sri Lanka for Art Direction, Web Design, Marketing, and Product Design. Built for brands that want clarity, personality, and growth.',
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
@@ -612,35 +610,6 @@ const serviceCards = [
     ],
   },
   {
-    title: 'AI Chatbot',
-    eyebrow: 'Helpful by design',
-    tone: 'bg-quaternary text-text-inverse',
-    eyebrowTone: 'bg-card text-text',
-    bodyTone: 'text-text-inverse',
-    noteTone: 'text-text-inverse/80',
-    accordionSummaryClass: 'bg-card text-text',
-    accordionIconClass: 'bg-success text-text',
-    body: 'An AI Chatbot should feel useful, not intrusive. We design <strong>lightweight conversational flows</strong> that answer common questions, guide visitors, and open the door to faster contact.',
-    note: 'The best AI touchpoints <strong>reduce friction</strong>. They do not compete with the rest of the experience.',
-    items: [
-      {
-        title: 'What can an AI Chatbot do?',
-        content:
-          'An AI Chatbot can answer common questions, guide visitors, and make first contact easier. It is useful for <strong>saving time on repeated questions</strong> without replacing real human support.',
-      },
-      {
-        title: 'Why do we keep it simple?',
-        content:
-          'If an AI Chatbot tries to do too much, it becomes confusing. We prefer <strong>a simple and focused tool</strong> that helps visitors quickly without getting in their way.',
-      },
-      {
-        title: 'How does it fit your brand?',
-        content:
-          'We shape the tone and flow so the AI Chatbot feels <strong>natural for your business</strong>, not like a random extra tool added at the last minute.',
-      },
-    ],
-  },
-  {
     title: 'Product Design',
     eyebrow: 'Systems that scale',
     tone: 'bg-quinary text-text-inverse',
@@ -744,8 +713,8 @@ const teamMembers = [
     eyebrowTone: 'bg-card text-text',
     roleTone: 'text-white/70',
     bodyTone: 'text-white/85',
-    role: 'Chatbot, Marketing Strategy, SEO',
-    body: 'Steve focuses on <strong>chatbot thinking, search visibility, and marketing direction</strong>, helping brands move with more clarity and better momentum.',
+    role: 'Marketing Strategy, SEO, Growth',
+    body: 'Steve focuses on <strong>search visibility, marketing direction, and growth thinking</strong>, helping brands move with more clarity and better momentum.',
     frog: ranaVerde,
     imageClass: 'w-full max-w-[188px] md:max-w-[206px]',
   },

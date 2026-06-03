@@ -17,9 +17,9 @@
 
       <div class="flex items-center justify-center">
         <img
-          src="/ranocchie.svg"
-          alt="The Froggy Studio frogs illustration"
-          class="h-auto w-full max-w-[420px]"
+          src="/favicon-32x32.png?v=20260603"
+          alt="The Froggy Studio icon"
+          class="h-auto w-full max-w-[220px] rounded-[2rem]"
         >
       </div>
     </section>

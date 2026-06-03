@@ -19,9 +19,9 @@
 
       <div class="order-1 flex items-center justify-center md:order-2">
         <img
-          src="/ranocchie.svg"
-          alt="The Froggy Studio frogs illustration"
-          class="h-auto w-full max-w-[260px] sm:max-w-[340px] md:max-w-[420px]"
+          src="/favicon-32x32.png?v=20260603"
+          alt="The Froggy Studio icon"
+          class="h-auto w-full max-w-[180px] rounded-[2rem] sm:max-w-[220px] md:max-w-[260px]"
         >
       </div>
     </section>

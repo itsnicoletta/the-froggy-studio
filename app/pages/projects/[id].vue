@@ -385,7 +385,7 @@ onBeforeUnmount(() => {
 })
 
 const canonicalUrl = `${siteUrl}/projects/${project.id}`
-const ogImage = project.coverImage || `${siteUrl}/ranocchie.svg`
+const ogImage = project.coverImage || `${siteUrl}/favicon-32x32.png?v=20260603`
 
 useHead({
   htmlAttrs: {

@@ -175,7 +175,7 @@ const { data: relatedPosts } = await useAsyncData(`blog-related:${route.path}`, 
 })
 
 const canonicalUrl = computed(() => `${siteUrl}${route.path}`)
-const ogImage = computed(() => post.value?.image || `${siteUrl}/ranocchie.svg`)
+const ogImage = computed(() => post.value?.image || `${siteUrl}/favicon-32x32.png?v=20260603`)
 const metadataChipClasses = {
   published: 'bg-primary text-text',
   updated: 'bg-tertiary text-text-inverse',

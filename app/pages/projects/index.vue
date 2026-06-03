@@ -87,7 +87,7 @@ import { publishedProjects } from '~~/data/projects'
 
 const siteUrl = 'https://thefroggystudio.com'
 const canonicalUrl = `${siteUrl}/projects`
-const ogImage = `${siteUrl}/ranocchie.svg`
+const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
 
 useHead({
   htmlAttrs: {
@@ -108,7 +108,7 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
-  ogImageAlt: 'The Froggy Studio frogs illustration',
+  ogImageAlt: 'The Froggy Studio icon',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Projects | The Froggy Studio',
   twitterDescription:

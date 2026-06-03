@@ -69,16 +69,6 @@
                 class="hero-animation absolute bottom-0 left-1/2 h-[380px] w-[800px] max-w-none -translate-x-1/2 self-end sm:h-[460px] sm:w-[980px] md:h-[700px] md:w-[1240px] lg:h-[760px] lg:w-[1320px]"
                 aria-label="The Froggy Studio hero animation"
               />
-              <div
-                v-if="!isHeroAnimationReady"
-                class="hero-animation-fallback pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2"
-              >
-                <img
-                  src="/ranocchie.svg"
-                  alt="The Froggy Studio frogs illustration"
-                  class="h-auto w-[800px] max-w-none sm:w-[980px] md:w-[1240px] lg:w-[1320px]"
-                >
-              </div>
             </div>
           </div>
 
@@ -390,12 +380,11 @@ const router = useRouter()
 const consentCookieName = 'tfs_cookie_consent'
 const consentMaxAge = 60 * 60 * 24 * 180
 const heroAnimationContainer = ref<HTMLElement | null>(null)
-const isHeroAnimationReady = ref(false)
 let destroyHeroAnimation: (() => void) | null = null
 
 const siteUrl = 'https://thefroggystudio.com'
 const canonicalUrl = `${siteUrl}/`
-const ogImage = `${siteUrl}/ranocchie.svg`
+const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -473,7 +462,7 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
-  ogImageAlt: 'The Froggy Studio frogs illustration',
+  ogImageAlt: 'The Froggy Studio icon',
   ogSiteName: 'The Froggy Studio',
   ogLocale: 'en_LK',
   twitterCard: 'summary_large_image',
@@ -799,7 +788,6 @@ onMounted(async () => {
     },
   })
 
-  isHeroAnimationReady.value = true
   destroyHeroAnimation = () => animation.destroy()
 })
 

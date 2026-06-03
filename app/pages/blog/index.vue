@@ -81,7 +81,7 @@
 <script setup lang="ts">
 const siteUrl = 'https://thefroggystudio.com'
 const canonicalUrl = `${siteUrl}/blog`
-const ogImage = `${siteUrl}/ranocchie.svg`
+const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
 
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryCollection('blog')

@@ -48,10 +48,10 @@
               <div class="space-y-4">
                 <div class="space-y-3">
                   <div class="flex flex-wrap gap-2">
-                    <span class="eyebrow bg-primary">{{ project.tags[0] }}</span>
+                    <span class="project-chip">{{ project.tags[0] }}</span>
                   </div>
 
-                  <div class="space-y-2">
+                  <div class="space-y-2 pt-4 sm:pt-5 md:pt-6">
                     <h2 class="text-[1.9rem] leading-[0.94] sm:text-[2.35rem]">
                       {{ project.title }}
                     </h2>

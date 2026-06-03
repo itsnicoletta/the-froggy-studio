@@ -18,7 +18,7 @@
                 <span
                   v-for="tag in project.tags"
                   :key="tag"
-                  class="eyebrow border-white/15 bg-white/10 text-text-inverse"
+                  class="project-chip"
                 >
                   {{ tag }}
                 </span>

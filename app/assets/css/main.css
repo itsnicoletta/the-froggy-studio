@@ -232,6 +232,21 @@
     text-transform: uppercase;
   }
 
+  .project-chip {
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--color-secondary) 18%, white);
+    padding: 0.42rem 0.78rem;
+    color: color-mix(in srgb, var(--color-quinary) 86%, var(--color-text));
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
   .frog-divider {
     position: relative;
     overflow: hidden;

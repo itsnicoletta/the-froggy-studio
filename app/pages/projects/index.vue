@@ -40,15 +40,21 @@
                 </div>
 
                 <div v-else class="aspect-[4/5] rounded-[1.1rem] border-2 border-border bg-accent-soft p-6 text-sm font-bold text-text/65">
-                  Add a cover image path in `data/projects.ts` and place the image inside
-                  `public/project-assets/`.
+                  <div class="flex h-full items-end">
+                    <div class="space-y-3">
+                      <p class="eyebrow bg-card text-text">{{ project.searchIntentLabel }}</p>
+                      <p class="text-base leading-7 text-text/70">{{ project.title }}</p>
+                      <p class="text-sm font-normal leading-6 text-text/60">{{ project.summary }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="space-y-4">
                 <div class="space-y-3">
                   <div class="flex flex-wrap gap-2">
-                    <span class="project-chip">{{ project.tags[0] }}</span>
+                    <span class="project-chip">{{ project.searchIntentLabel }}</span>
+                    <span class="project-chip">{{ project.status }}</span>
                   </div>
 
                   <div class="space-y-2 pt-4 sm:pt-5 md:pt-6">
@@ -66,10 +72,18 @@
                   <p class="max-w-2xl text-[0.96rem] leading-7 text-text/72">
                     {{ project.summary }}
                   </p>
+
+                  <p v-if="project.proofNote" class="text-sm font-bold text-text/78">
+                    {{ project.proofNote }}
+                  </p>
+
+                  <p class="text-sm leading-7 text-text/70">
+                    Services: {{ project.servicesDelivered.slice(0, 2).join(', ') }}
+                  </p>
                 </div>
 
                 <div class="pt-1">
-                  <BaseButton :href="`/projects/${project.id}`">View project</BaseButton>
+                  <BaseButton :href="`/projects/${project.id}`">Read project details</BaseButton>
                 </div>
               </div>
             </div>
@@ -84,10 +98,10 @@
 
 <script setup lang="ts">
 import { publishedProjects } from '~~/data/projects'
+import { buildCanonicalUrl, INDEXABLE_ROBOTS, SITE_URL } from '~~/utils/site'
 
-const siteUrl = 'https://thefroggystudio.com'
-const canonicalUrl = `${siteUrl}/projects`
-const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
+const canonicalUrl = buildCanonicalUrl('/projects')
+const ogImage = `${SITE_URL}/favicon-32x32.png?v=20260603`
 
 useHead({
   htmlAttrs: {
@@ -96,15 +110,38 @@ useHead({
   link: [
     { rel: 'canonical', href: canonicalUrl },
   ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: buildCanonicalUrl('/'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Projects',
+            item: canonicalUrl,
+          },
+        ],
+      }),
+    },
+  ],
 })
 
 useSeoMeta({
-  title: 'Projects | Portfolio | The Froggy Studio',
+  title: 'Projects | The Froggy Studio',
   description:
-    'A clean portfolio page showing selected real projects by The Froggy Studio.',
+    'Selected website and brand identity projects from The Froggy Studio.',
   ogTitle: 'Projects | The Froggy Studio',
   ogDescription:
-    'A clean portfolio page showing selected real projects by The Froggy Studio.',
+    'Selected website and brand identity projects from The Froggy Studio.',
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
@@ -112,7 +149,8 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Projects | The Froggy Studio',
   twitterDescription:
-    'A clean portfolio page showing selected real projects by The Froggy Studio.',
+    'Selected website and brand identity projects from The Froggy Studio.',
   twitterImage: ogImage,
+  robots: INDEXABLE_ROBOTS,
 })
 </script>

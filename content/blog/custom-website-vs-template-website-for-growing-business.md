@@ -8,6 +8,13 @@ category: Web Design
 question: Should I choose a custom website or a template website for my business?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Is a template website enough for a small business?
+    answer: Yes, it can be enough early on when the offer is simple, speed matters, and the business is still validating its direction.
+  - question: When should a business move to a custom website?
+    answer: A custom website usually makes more sense when the business needs clearer positioning, more flexible structure, better SEO foundations, or room to grow.
+  - question: Is a custom website only about visual uniqueness?
+    answer: No. The bigger difference is often control over structure, messaging, content flow, and how the website supports the business.
 ---
 
 Both options can work.
@@ -80,3 +87,19 @@ They are simply better for some stages than others.
 If the website is starting to feel restrictive, generic, or difficult to grow with, the question is probably no longer whether a template can work.
 
 It is whether it still fits the business you are becoming.
+
+If you are weighing up a template versus a more custom approach, The Froggy Studio can help you choose based on what your business actually needs next.
+
+## FAQ
+
+### Is a template website enough for a small business?
+
+Yes, it can be enough early on when the offer is simple, speed matters, and the business is still validating its direction.
+
+### When should a business move to a custom website?
+
+A custom website usually makes more sense when the business needs clearer positioning, more flexible structure, better SEO foundations, or room to grow.
+
+### Is a custom website only about visual uniqueness?
+
+No. The bigger difference is often control over structure, messaging, content flow, and how the website supports the business.

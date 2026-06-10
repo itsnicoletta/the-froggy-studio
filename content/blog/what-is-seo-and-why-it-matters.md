@@ -8,6 +8,13 @@ category: SEO
 question: What does SEO actually do for a business?
 author: The Froggy Studio
 published: true
+faq:
+  - question: What does SEO actually do?
+    answer: SEO helps your business appear when people search for relevant services, questions, or problems online.
+  - question: Is SEO just about getting more traffic?
+    answer: No. Good SEO is about helping the right people find you, not just increasing visitor numbers.
+  - question: Why does SEO matter for small businesses?
+    answer: It matters because search captures people with existing intent, which can make visibility more practical and sustainable than relying only on paid reach.
 ---
 
 SEO stands for search engine optimization.
@@ -43,3 +50,19 @@ The website still has to do the rest. If the offer is vague or the structure is 
 Businesses are competing for attention everywhere.
 
 SEO matters because it helps you show up when someone is already motivated to learn, compare, or act. That makes it one of the most practical ways to build discoverability without depending entirely on paid reach.
+
+If you want your website to be easier to find and easier to trust, The Froggy Studio can help strengthen the SEO foundations underneath it.
+
+## FAQ
+
+### What does SEO actually do?
+
+SEO helps your business appear when people search for relevant services, questions, or problems online.
+
+### Is SEO just about getting more traffic?
+
+No. Good SEO is about helping the right people find you, not just increasing visitor numbers.
+
+### Why does SEO matter for small businesses?
+
+It matters because search captures people with existing intent, which can make visibility more practical and sustainable than relying only on paid reach.

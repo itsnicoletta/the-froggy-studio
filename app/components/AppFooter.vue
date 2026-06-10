@@ -20,6 +20,7 @@
           <div>
             <h3 class="font-display text-xl">Explore</h3>
             <div class="mt-3 space-y-2 text-sm text-text-muted">
+              <a class="block transition hover:text-white" href="/">Home</a>
               <a class="block transition hover:text-white" :href="servicesHref">Services</a>
               <a class="block transition hover:text-white" :href="processHref">Process</a>
               <a class="block transition hover:text-white" href="/projects">Projects</a>

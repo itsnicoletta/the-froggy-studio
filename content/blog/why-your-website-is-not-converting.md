@@ -8,6 +8,13 @@ category: Conversion
 question: Why is my website not generating leads or sales?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Why is my website getting traffic but not conversions?
+    answer: The usual reasons are unclear messaging, weak trust signals, poor page structure, or a CTA that is too hidden or too soft.
+  - question: Will more traffic fix a low-converting website?
+    answer: Usually no. Sending more traffic to a weak page often just increases the same poor result.
+  - question: What should I improve first on a weak website?
+    answer: Start with the headline, page structure, CTA clarity, distractions, and trust signals before spending more on traffic.
 ---
 
 If your website gets visitors but very few enquiries, bookings, or sales, the issue is usually not just traffic.
@@ -74,3 +81,19 @@ If your website is not converting, start here:
 - strengthen trust signals
 
 Often, a few focused changes do more than a full redesign done without strategy.
+
+If your website is attracting visits but not enough action, The Froggy Studio can help strengthen the message, structure, and conversion path.
+
+## FAQ
+
+### Why is my website getting traffic but not conversions?
+
+The usual reasons are unclear messaging, weak trust signals, poor page structure, or a CTA that is too hidden or too soft.
+
+### Will more traffic fix a low-converting website?
+
+Usually no. Sending more traffic to a weak page often just increases the same poor result.
+
+### What should I improve first on a weak website?
+
+Start with the headline, page structure, CTA clarity, distractions, and trust signals before spending more on traffic.

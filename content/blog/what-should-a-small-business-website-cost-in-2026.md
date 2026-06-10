@@ -8,6 +8,13 @@ category: Web Design
 question: How much should a small business website cost in 2026?
 author: The Froggy Studio
 published: true
+faq:
+  - question: How much should a small business website cost in 2026?
+    answer: There is no single honest price because cost depends on complexity, scope, strategy, design needs, and functionality.
+  - question: Why do website prices vary so much?
+    answer: Prices vary because two websites can have the same number of pages but very different levels of structure, customization, integrations, and strategic thinking behind them.
+  - question: Is the cheapest website always the best deal?
+    answer: Not usually. A cheap website can become more expensive over time if it is vague, hard to update, or weak at turning attention into enquiries.
 ---
 
 There is no single honest price for a small business website.
@@ -75,3 +82,19 @@ If the website is meant to support trust, search visibility, and growth, it shou
 The better question is not "what is the cheapest website I can get?"
 
 It is "what kind of website does my business actually need next?"
+
+If you are comparing website quotes and want a clearer sense of what really affects cost, The Froggy Studio can help you evaluate the scope more realistically.
+
+## FAQ
+
+### How much should a small business website cost in 2026?
+
+There is no single honest price because cost depends on complexity, scope, strategy, design needs, and functionality.
+
+### Why do website prices vary so much?
+
+Prices vary because two websites can have the same number of pages but very different levels of structure, customization, integrations, and strategic thinking behind them.
+
+### Is the cheapest website always the best deal?
+
+Not usually. A cheap website can become more expensive over time if it is vague, hard to update, or weak at turning attention into enquiries.

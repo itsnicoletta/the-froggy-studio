@@ -8,6 +8,13 @@ category: SEO
 question: Why am I not getting leads even though I have a website?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Why is my business not getting leads online?
+    answer: The usual causes are weak visibility, unclear messaging, or a website that does not make the next step easy enough.
+  - question: Can a website get traffic but still fail to generate leads?
+    answer: Yes. If the offer is vague or the conversion path is weak, visits may increase without producing enquiries.
+  - question: What should I fix first if leads are weak?
+    answer: Start by checking whether the right people can find you, whether they understand the offer quickly, and whether the next step is obvious.
 ---
 
 If your business is online but lead flow is weak, the problem is usually not effort.
@@ -47,3 +54,19 @@ Start by asking:
 - do they know what to do next?
 
 Those three questions often reveal where the real bottleneck is.
+
+If your business is online but enquiries stay inconsistent, The Froggy Studio can help pinpoint whether the issue is visibility, clarity, or conversion.
+
+## FAQ
+
+### Why is my business not getting leads online?
+
+The usual causes are weak visibility, unclear messaging, or a website that does not make the next step easy enough.
+
+### Can a website get traffic but still fail to generate leads?
+
+Yes. If the offer is vague or the conversion path is weak, visits may increase without producing enquiries.
+
+### What should I fix first if leads are weak?
+
+Start by checking whether the right people can find you, whether they understand the offer quickly, and whether the next step is obvious.

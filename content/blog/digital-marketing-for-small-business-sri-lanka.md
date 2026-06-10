@@ -8,6 +8,13 @@ category: Digital Marketing
 question: How can small businesses in Sri Lanka start digital marketing?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Where should a small business in Sri Lanka start with digital marketing?
+    answer: A good starting point is a clear website, basic SEO, and messaging that explains the offer properly before adding more channels.
+  - question: Is social media enough for small business marketing?
+    answer: Social media helps with visibility, but it works better when it supports a website that explains the business clearly and captures enquiries.
+  - question: Why is SEO useful for small businesses?
+    answer: SEO helps small businesses appear when people are already searching for a service, which usually means stronger intent and more practical leads.
 ---
 
 Digital marketing does not have to start with a big budget.
@@ -54,3 +61,19 @@ A simple order often works best:
 - add campaigns or ads when the base is ready
 
 That sequence usually creates more stable growth than trying to do everything at once.
+
+If your business needs a simpler digital marketing foundation, The Froggy Studio can help you clarify the website, messaging, and search strategy first.
+
+## FAQ
+
+### Where should a small business in Sri Lanka start with digital marketing?
+
+A good starting point is a clear website, basic SEO, and messaging that explains the offer properly before adding more channels.
+
+### Is social media enough for small business marketing?
+
+Social media helps with visibility, but it works better when it supports a website that explains the business clearly and captures enquiries.
+
+### Why is SEO useful for small businesses?
+
+SEO helps small businesses appear when people are already searching for a service, which usually means stronger intent and more practical leads.

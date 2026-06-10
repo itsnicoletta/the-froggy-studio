@@ -8,6 +8,13 @@ category: Web Design
 question: How can I tell if my business website needs a redesign?
 author: The Froggy Studio
 published: true
+faq:
+  - question: What are the main signs a website needs a redesign?
+    answer: Common signs include vague messaging, inconsistent presentation, difficulty updating the site, weak enquiries, and a website that no longer matches the quality of the business.
+  - question: Does a redesign always mean starting from scratch?
+    answer: No. Sometimes the right move is a lighter rework of structure, copy, or visual coherence rather than a full rebuild.
+  - question: Can a website redesign improve conversions?
+    answer: Yes, especially when the current site is unclear, hard to trust, or difficult for visitors to act on.
 ---
 
 Not every weak website needs a full redesign.
@@ -77,3 +84,19 @@ If the website no longer explains the business well, no longer supports growth, 
 The main question is not whether the site is old.
 
 It is whether it still helps the business move forward.
+
+If your website feels out of step with where the business is now, The Froggy Studio can help you figure out whether it needs focused improvements or a fuller redesign.
+
+## FAQ
+
+### What are the main signs a website needs a redesign?
+
+Common signs include vague messaging, inconsistent presentation, difficulty updating the site, weak enquiries, and a website that no longer matches the quality of the business.
+
+### Does a redesign always mean starting from scratch?
+
+No. Sometimes the right move is a lighter rework of structure, copy, or visual coherence rather than a full rebuild.
+
+### Can a website redesign improve conversions?
+
+Yes, especially when the current site is unclear, hard to trust, or difficult for visitors to act on.

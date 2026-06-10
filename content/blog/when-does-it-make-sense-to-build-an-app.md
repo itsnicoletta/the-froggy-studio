@@ -8,6 +8,13 @@ category: Strategy
 question: When should a business invest in product design and build an application instead of only a website?
 author: The Froggy Studio
 published: true
+faq:
+  - question: When does a business actually need an app?
+    answer: An app starts making sense when users need repeat interaction, multi-step workflows, accounts, saved progress, or a structured product experience beyond a website.
+  - question: Is a website enough for most businesses?
+    answer: Yes, especially early on. Many businesses need a clearer website before they need a more complex application.
+  - question: What is the risk of building an app too early?
+    answer: Building too early can turn unclear positioning or messy workflows into a more expensive product instead of solving the real problem.
 ---
 
 Not every business needs an app.
@@ -124,3 +131,19 @@ Usually when all of these start to be true:
 If that is the situation, an app is not just a design decision.
 
 It can become a smarter business model.
+
+If you are trying to decide whether your next step is a better website or a real product experience, The Froggy Studio can help map that out clearly.
+
+## FAQ
+
+### When does a business actually need an app?
+
+An app starts making sense when users need repeat interaction, multi-step workflows, accounts, saved progress, or a structured product experience beyond a website.
+
+### Is a website enough for most businesses?
+
+Yes, especially early on. Many businesses need a clearer website before they need a more complex application.
+
+### What is the risk of building an app too early?
+
+Building too early can turn unclear positioning or messy workflows into a more expensive product instead of solving the real problem.

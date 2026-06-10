@@ -8,6 +8,15 @@ import focumCover from './project-assets/focum_cover.webp'
 import focumGallery1 from './project-assets/focum_1.webp'
 import focumGallery2 from './project-assets/focum_2.webp'
 import focumGallery3 from './project-assets/focum_3.webp'
+import atlasCover from './project-assets/atlas_cover.webp'
+import atlasGallery1 from './project-assets/atlas_1.webp'
+import atlasGallery2 from './project-assets/atlas_2.webp'
+import atlasGallery3 from './project-assets/atlas_3.webp'
+import theSecretCover from './project-assets/Thesecret_cover.webp'
+import theSecretGallery1 from './project-assets/Thesecret_1.webp'
+import theSecretGallery2 from './project-assets/Thesecret_2.webp'
+import theSecretGallery3 from './project-assets/Thesecret_3.webp'
+import theSecretVideo from './project-assets/Thesecret_video.webm'
 
 export type ProjectAccordionItem = {
   title: string
@@ -28,10 +37,19 @@ export type ProjectGalleryItem = {
 export type ProjectEntry = {
   id: string
   title: string
+  searchIntentLabel: string
+  industry: string
+  status: string
+  servicesDelivered: string[]
+  toolsUsed: string[]
   summary: string
   scope: string
   collaboration?: string
   websiteUrl?: string
+  ctaLabel?: string
+  conversationCTA?: string
+  proofNote?: string
+  videoUrl?: string
   coverImage?: string
   coverImageAlt?: string
   coverAspectRatio?: string
@@ -48,13 +66,26 @@ export type ProjectEntry = {
 export const projects: ProjectEntry[] = [
   {
     id: 'theringexperience',
-    title: 'theringexperience',
+    title: 'The Ring Experience',
+    searchIntentLabel: 'Published Client Website',
+    industry: 'Jewellery workshop and experience booking',
+    status: 'Published',
+    servicesDelivered: [
+      'Website design and build',
+      'Vue development',
+      'Sanity CMS setup',
+      'Content structure',
+    ],
+    toolsUsed: ['Vue', 'Sanity', 'Figma', 'Cloudflare Pages'],
     summary:
-      'A website project connected to a Sanity backend, with booking-related flows and API integrations for consent-related data handling.',
+      'A published website for a jewellery workshop and tourism experience in Sri Lanka, built with editable content and a clear service structure.',
     scope:
-      'Website design and build, Sanity content management setup, editable content structure, booking flow connections, and API-based integrations.',
+      'Website design, Vue development, Sanity CMS setup, and content structure for a published client website.',
     collaboration: 'In collaboration with klyk.studio',
     websiteUrl: 'https://theringexperience.lk/',
+    ctaLabel: 'Visit live site',
+    conversationCTA: 'Need a website like this?',
+    proofNote: 'Positive Google reviews and a testimonial are available for this published client website.',
     coverImage: theringexCover,
     coverImageAlt: 'The Ring Experience project cover image',
     coverAspectRatio: '16 / 9',
@@ -130,11 +161,24 @@ export const projects: ProjectEntry[] = [
   {
     id: 'brand-identity-design-for-fire-starter-company',
     title: 'Focum',
+    searchIntentLabel: 'Concept Brand Identity',
+    industry: 'Brand identity concept',
+    status: 'Concept',
+    servicesDelivered: [
+      'Brand strategy',
+      'Visual identity system',
+      'Naming direction',
+      'Packaging direction',
+    ],
+    toolsUsed: ['Figma', 'Adobe Illustrator', 'Adobe InDesign'],
     summary:
-      'A brand identity project focused on shaping a sharper, more distinctive visual direction for Focum.',
+      'A concept brand identity for a premium firelighter and glamping product, shaped as an exercise in naming and visual direction.',
     scope:
-      'Brand identity design, visual language development, logo direction, and core brand applications.',
+      'Brand strategy, visual identity, naming direction, brand bible, and packaging direction for a concept project.',
     websiteUrl: 'https://drive.google.com/file/d/1O0llKcTZq1OYRsD8eUrEFnUhW5pr-VG2/view?ths=true',
+    ctaLabel: 'View concept presentation',
+    conversationCTA: 'Need a brand identity?',
+    proofNote: 'Concept work only, not client work.',
     coverImage: focumCover,
     coverImageAlt: 'Focum brand identity project cover image',
     coverAspectRatio: '16 / 7.2',
@@ -191,12 +235,191 @@ export const projects: ProjectEntry[] = [
     order: 2,
     published: true,
     content: [
-      'This project is a brand identity case study created for Focum.',
+      'This project is a concept brand identity case study created for Focum.',
       'The main goal is to shape a visual direction that feels more distinctive, more consistent, and easier to recognise.',
       'The work is less about adding noise and more about giving the brand a stronger and more intentional presence.',
-      'A clear identity helps the company communicate with more confidence across different formats and touchpoints.',
-      'It also creates a foundation that can be applied more consistently as the brand grows and evolves.',
-      'The new visual assets now give the project a more tangible case study presence across the portfolio and detail page.',
+      'A clear identity helps the brand communicate with more confidence across different formats and touchpoints.',
+      'It also creates a foundation that can be applied more consistently as the concept grows and evolves.',
+      'The new visual assets give the concept a more tangible portfolio presence.',
+    ],
+  },
+  {
+    id: 'secret-garden',
+    title: 'The Secret Garden',
+    searchIntentLabel: 'Internal Product',
+    industry: 'Mood tracking desktop app',
+    status: 'Completed desktop app',
+    servicesDelivered: [
+      'Product concept',
+      'UX/UI design',
+      'Visual identity direction',
+      'Front-end development',
+      'Local data structure',
+      'App packaging',
+    ],
+    toolsUsed: ['HTML', 'CSS', 'JavaScript', 'Vite', 'Electron', 'electron-builder'],
+    summary:
+      'A small desktop mood diary app designed as a gentle emotional ritual, where users plant one mood per day, write a private note, and watch their weekly garden slowly grow.',
+    scope:
+      'Product concept, UX/UI design, visual identity direction, front-end development, local-first data structure, Electron packaging, and release preparation.',
+    conversationCTA: 'Have a product idea?',
+    proofNote: 'Completed desktop app. Internal product, not client work.',
+    videoUrl: theSecretVideo,
+    coverImage: theSecretCover,
+    coverImageAlt: 'The Secret Garden desktop app project cover image',
+    coverAspectRatio: '16 / 9',
+    coverObjectPosition: 'center center',
+    tags: ['Desktop app', 'Internal product'],
+    accordion: [
+      {
+        title: 'What it is',
+        content:
+          'The Secret Garden is a local-first desktop mood diary app built around a simple ritual: choose a mood, write a private thought, and plant it into the week\'s garden.',
+      },
+      {
+        title: 'How it works',
+        content:
+          'The product is built around three core sections: Garden for daily mood planting, Diary for saved notes and mood history, and Stats for visual summaries of emotional patterns.',
+      },
+      {
+        title: 'What makes it different',
+        content:
+          'Instead of treating mood tracking like performance data, the app uses metaphor, illustration, and soft interaction to create a calmer and more personal experience.',
+      },
+    ],
+    highlights: [
+      {
+        title: 'Ritual',
+        content:
+          'The app turns daily feelings into a tiny digital garden, with one planted mood per day and a private note attached to each entry.',
+      },
+      {
+        title: 'Experience',
+        content:
+          'The UX stays focused and emotionally clear, with onboarding, custom modals, a settings area, and optional desktop reminders through Electron.',
+      },
+      {
+        title: 'Desktop build',
+        content:
+          'The app was packaged with Electron and electron-builder, including installer support, portable .exe output, tray behavior, and native notifications.',
+      },
+    ],
+    gallery: [
+      {
+        src: theSecretGallery1,
+        alt: 'The Secret Garden mood tracking app interface overview',
+      },
+      {
+        src: theSecretGallery2,
+        alt: 'The Secret Garden emotional diary flow and garden visuals',
+      },
+      {
+        src: theSecretGallery3,
+        alt: 'The Secret Garden desktop app screens and interaction details',
+      },
+    ],
+    order: 3,
+    published: true,
+    content: [
+      'The Secret Garden is an internal product, not client work.',
+      'It was designed to move away from the cold, analytical feeling of traditional mood trackers and replace it with a softer, more personal ritual.',
+      'Users can plant one mood per day, write a private note, and slowly build a weekly garden that reflects their emotional pattern over time.',
+      'The completed build includes Garden, Diary, and Stats sections, onboarding, settings, optional reminders, local-first storage, and a packaged Electron desktop app.',
+      'The current next step is preparing the public GitHub release.',
+    ],
+  },
+  {
+    id: 'atlas-pro',
+    title: 'Atlas Pro',
+    searchIntentLabel: 'Ongoing Social Media Management',
+    industry: 'Sports, parkour training, youth activity program',
+    status: 'Ongoing client project',
+    servicesDelivered: [
+      'Social media management',
+      'Content planning',
+      'Caption writing',
+      'Short-form content direction',
+      'Campaign support',
+      'Paid advertising support',
+      'Community communication',
+      'Content strategy',
+    ],
+    toolsUsed: [
+      'Instagram',
+      'Meta Business Suite',
+      'Content planning tools',
+      'Visual content direction',
+      'Paid ads support',
+    ],
+    summary:
+      'Atlas Pro is a parkour and youth activity program. The project focuses on building a clearer and more consistent social media presence through content planning, short-form content direction, captions, campaign support and paid advertising support.',
+    scope:
+      'The Froggy Studio supports Atlas Pro with social media management and digital content direction to make the brand more visible, easier to understand, and more consistent across Instagram.',
+    websiteUrl: 'https://www.instagram.com/atlasprosocials?igsh=bDkyajk3M2s2cGd5',
+    ctaLabel: 'View Atlas Pro on Instagram',
+    conversationCTA: 'Need social media support?',
+    proofNote:
+      'Between May 13, 2026 and June 9, 2026, Atlas Pro recorded 33.3K views, 17.8K reach, 436 content interactions, 355 Instagram link clicks, and 79 Instagram profile visits.',
+    coverImage: atlasCover,
+    coverImageAlt: 'Atlas Pro social media management project cover image',
+    coverAspectRatio: '16 / 9',
+    coverObjectPosition: 'center top',
+    tags: ['Social media', 'Campaign support'],
+    accordion: [
+      {
+        title: 'What was handled',
+        content:
+          'The work covered social media management, content planning, caption writing, short-form content direction, campaign support, paid advertising support, community communication, and content strategy.',
+      },
+      {
+        title: 'What changed',
+        content:
+          'Between May 13, 2026 and June 9, 2026, Atlas Pro recorded 33.3K views, 17.8K reach, 436 content interactions, 355 Instagram link clicks, and 79 Instagram profile visits.',
+      },
+      {
+        title: 'What this shows',
+        content:
+          'The work focused on making Atlas Pro’s communication clearer, more structured, and more consistent for both young athletes and parents.',
+      },
+    ],
+    highlights: [
+      {
+        title: 'Views',
+        content:
+          'Views increased by 142.2% during the reporting period.',
+      },
+      {
+        title: 'Reach',
+        content:
+          'Reach increased by 130.3% while the account became more consistent and easier to understand.',
+      },
+      {
+        title: 'Engagement',
+        content:
+          'Content interactions increased by 289.3%, and Instagram link clicks increased by 222.7%.',
+      },
+    ],
+    gallery: [
+      {
+        src: atlasGallery1,
+        alt: 'Atlas Pro Instagram content overview',
+      },
+      {
+        src: atlasGallery2,
+        alt: 'Atlas Pro social media post design and messaging',
+      },
+      {
+        src: atlasGallery3,
+        alt: 'Atlas Pro Instagram account growth and content direction',
+      },
+    ],
+    order: 4,
+    published: true,
+    content: [
+      'Atlas Pro is a parkour and youth activity program and an ongoing client project supported by The Froggy Studio.',
+      'The work focuses on building a clearer and more consistent social media presence through content planning, short-form content direction, captions, campaign support, and paid advertising support.',
+      'Between May 13, 2026 and June 9, 2026, Atlas Pro recorded 33.3K views, 17.8K reach, 436 content interactions, 355 Instagram link clicks, and 79 Instagram profile visits.',
+      'The Froggy Studio helped make the brand more visible, easier to understand, and more consistent across Instagram for both young athletes and parents.',
     ],
   },
 ]

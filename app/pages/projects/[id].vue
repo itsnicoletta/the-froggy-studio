@@ -15,6 +15,10 @@
                   Back to projects
                 </NuxtLink>
 
+                <span class="project-chip">
+                  {{ project.searchIntentLabel }}
+                </span>
+
                 <span
                   v-for="tag in project.tags"
                   :key="tag"
@@ -25,10 +29,13 @@
               </div>
 
               <div class="hidden rounded-[1.2rem] border border-white/12 bg-white/8 px-4 py-3 lg:block">
-                <p class="text-xs font-bold uppercase tracking-[0.16em] text-white/45">Scope</p>
-                <p class="mt-2 max-w-[260px] text-sm leading-6 text-white/72">
-                  {{ project.scope }}
-                </p>
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-white/45">Project facts</p>
+                <div class="mt-2 space-y-3 max-w-[300px] text-sm leading-6 text-white/72">
+                  <p><strong class="text-white">Status:</strong> {{ project.status }}</p>
+                  <p><strong class="text-white">Industry:</strong> {{ project.industry }}</p>
+                  <p><strong class="text-white">Services:</strong> {{ project.servicesDelivered.join(', ') }}</p>
+                  <p><strong class="text-white">Tools:</strong> {{ project.toolsUsed.join(', ') }}</p>
+                </div>
               </div>
             </div>
 
@@ -55,10 +62,13 @@
                 :href="project.websiteUrl"
                 variant="outlineInverse"
               >
-                Discover source
+                {{ project.ctaLabel || 'Open project link' }}
               </BaseButton>
               <BaseButton href="/#contact">
-                Let's talk
+                {{ project.conversationCTA || 'Need something similar?' }}
+              </BaseButton>
+              <BaseButton href="/#services" variant="outlineInverse">
+                Explore our services
               </BaseButton>
             </div>
           </div>
@@ -94,10 +104,10 @@
           >
             <div class="max-w-xl rounded-[1.4rem] border-2 border-border bg-card p-5 shadow-[6px_6px_0_0_var(--color-border)]">
               <p class="text-xs font-bold uppercase tracking-[0.16em] text-text/50">
-                Project media
+                {{ project.searchIntentLabel }}
               </p>
               <p class="mt-3 text-sm leading-7 text-text/76">
-                Add cover visuals or mockups for this project in `data/projects.ts` when they are ready.
+                {{ project.proofNote || 'Project visuals are not published yet, so the work is documented here through scope, tools, and notes.' }}
               </p>
             </div>
           </div>
@@ -109,13 +119,25 @@
           <article class="panel-card bg-card px-5 py-6 md:px-8 md:py-8">
             <p class="eyebrow bg-accent-soft">Overview</p>
             <div class="mt-5 max-w-3xl space-y-4 text-[1rem] leading-8 text-text/78">
+              <p><strong>{{ project.searchIntentLabel }}.</strong></p>
               <p>{{ projectDescription }}</p>
+              <p v-if="project.proofNote" class="text-sm font-bold text-text/80">
+                {{ project.proofNote }}
+              </p>
             </div>
           </article>
 
           <aside class="panel-card bg-accent-warm px-5 py-6 md:px-7 md:py-8">
             <p class="eyebrow bg-primary">Key points</p>
             <div class="mt-5 space-y-4">
+              <div class="rounded-[1.15rem] border-2 border-border bg-card p-4">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-text/50">
+                  In short
+                </p>
+                <p class="mt-2 text-sm leading-7 text-text/76">
+                  {{ project.title }} is a {{ project.searchIntentLabel.toLowerCase() }} in {{ project.industry.toLowerCase() }} focused on {{ project.servicesDelivered.slice(0, 2).join(' and ').toLowerCase() }}.
+                </p>
+              </div>
               <div
                 v-for="item in project.highlights"
                 :key="item.title"
@@ -278,9 +300,9 @@
 
 <script setup lang="ts">
 import { getProjectById } from '~~/data/projects'
+import { buildCanonicalUrl, INDEXABLE_ROBOTS, SITE_URL } from '~~/utils/site'
 
 const route = useRoute()
-const siteUrl = 'https://thefroggystudio.com'
 const projectId = route.params.id as string
 const project = getProjectById(projectId)
 
@@ -308,7 +330,7 @@ const secondDescription = computed(() => {
   return [project.scope, ...project.content.slice(3)].join(' ')
 })
 
-const projectVideo = computed(() => '')
+const projectVideo = computed(() => project.videoUrl || '')
 
 function nextBtn() {
   if (!project.gallery.length) return
@@ -384,8 +406,41 @@ onBeforeUnmount(() => {
   window.removeEventListener('keydown', handleKeydown)
 })
 
-const canonicalUrl = `${siteUrl}/projects/${project.id}`
-const ogImage = project.coverImage || `${siteUrl}/favicon-32x32.png?v=20260603`
+const canonicalUrl = buildCanonicalUrl(`/projects/${project.id}`)
+const ogImage = project.coverImage
+  ? buildCanonicalUrl(project.coverImage)
+  : `${SITE_URL}/favicon-32x32.png?v=20260603`
+const projectMetadata: Record<string, { title: string, description: string }> = {
+  theringexperience: {
+    title: 'The Ring Experience | Published Client Website | The Froggy Studio',
+    description:
+      'Published client website for The Ring Experience, with Vue development, Sanity CMS setup, and content structure.',
+  },
+  'brand-identity-design-for-fire-starter-company': {
+    title: 'Focum | Brand Identity Concept | The Froggy Studio',
+    description:
+      'Brand identity concept for Focum focused on naming direction, identity systems, and packaging direction.',
+  },
+  'secret-garden': {
+    title: 'The Secret Garden | Internal Product | The Froggy Studio',
+    description:
+      'Internal desktop mood diary app with product concept, UX/UI design, local-first data structure, Electron packaging, and emotional ritual-driven interaction design.',
+  },
+  'atlas-pro': {
+    title: 'Atlas Pro Social Media Management Project | The Froggy Studio',
+    description:
+      'Atlas Pro is an ongoing social media management project for a parkour and youth activity program, supported by The Froggy Studio through content planning, captions, campaign direction and paid ads support.',
+  },
+}
+const metadata = projectMetadata[project.id] || {
+  title: `${project.title} | Project | The Froggy Studio`,
+  description: project.summary,
+}
+const breadcrumbItems = [
+  { name: 'Home', item: SITE_URL },
+  { name: 'Projects', item: buildCanonicalUrl('/projects') },
+  { name: project.title, item: canonicalUrl },
+]
 
 useHead({
   htmlAttrs: {
@@ -394,20 +449,53 @@ useHead({
   link: [
     { rel: 'canonical', href: canonicalUrl },
   ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbItems.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.item,
+        })),
+      }),
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: metadata.description,
+        url: canonicalUrl,
+        author: {
+          '@type': 'Organization',
+          name: 'The Froggy Studio',
+          url: SITE_URL,
+        },
+        about: project.searchIntentLabel,
+        keywords: [project.industry, ...project.tags],
+      }),
+    },
+  ],
 })
 
 useSeoMeta({
-  title: `${project.title} | Project | The Froggy Studio`,
-  description: project.summary,
-  ogTitle: `${project.title} | The Froggy Studio`,
-  ogDescription: project.summary,
+  title: metadata.title,
+  description: metadata.description,
+  ogTitle: metadata.title,
+  ogDescription: metadata.description,
   ogType: 'article',
   ogUrl: canonicalUrl,
   ogImage,
   ogImageAlt: project.coverImageAlt || project.title,
   twitterCard: 'summary_large_image',
-  twitterTitle: `${project.title} | The Froggy Studio`,
-  twitterDescription: project.summary,
+  twitterTitle: metadata.title,
+  twitterDescription: metadata.description,
   twitterImage: ogImage,
+  robots: INDEXABLE_ROBOTS,
 })
 </script>

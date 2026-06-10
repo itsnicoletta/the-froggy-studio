@@ -8,6 +8,13 @@ category: SEO
 question: How should a service page be structured for SEO and AI search?
 author: The Froggy Studio
 published: true
+faq:
+  - question: What should a strong service page include?
+    answer: A strong service page should explain one clear offer, who it is for, what is included, how it works, and what the visitor should do next.
+  - question: Why do separate service pages help SEO and AI search?
+    answer: Separate pages help each service answer a specific intent, which makes the content easier for search engines and AI systems to understand.
+  - question: Can service pages be too generic?
+    answer: Yes. Generic or repetitive service pages weaken intent signals and make it harder for people and machines to understand the offer properly.
 ---
 
 Service pages often underperform because they try to say everything at once.
@@ -85,3 +92,19 @@ The best service pages are not the cleverest ones.
 They are the clearest ones.
 
 If a page explains one offer well, shows who it is for, describes what is included, and answers the next logical questions, it becomes much more useful for search, AI interpretation, and real conversions.
+
+If your service pages feel broad or hard to understand, The Froggy Studio can help make them clearer for both people and AI-assisted search.
+
+## FAQ
+
+### What should a strong service page include?
+
+A strong service page should explain one clear offer, who it is for, what is included, how it works, and what the visitor should do next.
+
+### Why do separate service pages help SEO and AI search?
+
+Separate pages help each service answer a specific intent, which makes the content easier for search engines and AI systems to understand.
+
+### Can service pages be too generic?
+
+Yes. Generic or repetitive service pages weaken intent signals and make it harder for people and machines to understand the offer properly.

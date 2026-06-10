@@ -8,6 +8,13 @@ category: Branding
 question: Does brand identity actually affect sales?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Can brand identity really affect sales?
+    answer: Yes. Brand identity affects how clearly, confidently, and memorably a business is perceived, which can influence trust and buying decisions.
+  - question: How does weak brand identity hurt conversion?
+    answer: Weak identity can make a business feel inconsistent, generic, or less credible, which creates hesitation before people enquire or buy.
+  - question: Does brand identity matter more as a business grows?
+    answer: Usually yes. As a business reaches colder audiences and more competitive markets, identity does more work in helping people trust and remember it.
 ---
 
 Yes, brand identity can affect sales.
@@ -61,3 +68,19 @@ Brand identity affects sales when people need to choose, compare, trust, or reme
 That means it is not only a visual upgrade.
 
 At the right stage, it becomes part of how the business earns confidence.
+
+If your business has grown but the brand still feels inconsistent or too generic, The Froggy Studio can help bring more clarity and confidence into how it is presented.
+
+## FAQ
+
+### Can brand identity really affect sales?
+
+Yes. Brand identity affects how clearly, confidently, and memorably a business is perceived, which can influence trust and buying decisions.
+
+### How does weak brand identity hurt conversion?
+
+Weak identity can make a business feel inconsistent, generic, or less credible, which creates hesitation before people enquire or buy.
+
+### Does brand identity matter more as a business grows?
+
+Usually yes. As a business reaches colder audiences and more competitive markets, identity does more work in helping people trust and remember it.

@@ -6,11 +6,15 @@ const props = withDefaults(
     href?: string
     variant?: 'solid' | 'outline' | 'dark' | 'outlineInverse'
     type?: 'button' | 'submit' | 'reset'
+    target?: '_self' | '_blank' | '_parent' | '_top'
+    rel?: string
   }>(),
   {
     href: undefined,
     variant: 'solid',
     type: 'button',
+    target: undefined,
+    rel: undefined,
   },
 )
 
@@ -38,7 +42,9 @@ const variantClass = {
   <component
     v-if="props.href"
     :is="isExternalHref ? 'a' : NuxtLink"
-    v-bind="isExternalHref ? { href: props.href } : { to: props.href }"
+    v-bind="isExternalHref
+      ? { href: props.href, target: props.target, rel: props.rel }
+      : { to: props.href }"
     class="inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-border px-4 py-2.5 text-sm font-extrabold tracking-tight whitespace-nowrap transition duration-200 sm:px-5 sm:py-3"
     :class="variantClass[props.variant]"
   >

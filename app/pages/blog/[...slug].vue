@@ -48,6 +48,9 @@
                 <p class="max-w-2xl text-[1rem] leading-8 text-text/75">
                   {{ post.description }}
                 </p>
+                <p class="text-sm font-bold uppercase tracking-[0.16em] text-text/55">
+                  Written by {{ post.author }} · Practical guidance from The Froggy Studio
+                </p>
               </div>
             </div>
           </div>
@@ -144,8 +147,24 @@
 </template>
 
 <script setup lang="ts">
+import { buildCanonicalUrl, INDEXABLE_ROBOTS, REMOVED_BLOG_SLUGS, SITE_URL } from '~~/utils/site'
+
 const route = useRoute()
-const siteUrl = 'https://thefroggystudio.com'
+const slugSegments = computed(() =>
+  Array.isArray(route.params.slug)
+    ? route.params.slug
+    : route.params.slug
+      ? [route.params.slug]
+      : [],
+)
+const slugPath = computed(() => slugSegments.value.join('/'))
+
+if (REMOVED_BLOG_SLUGS.has(slugPath.value)) {
+  throw createError({
+    statusCode: 410,
+    statusMessage: 'Article removed',
+  })
+}
 
 const { data: post } = await useAsyncData(`blog:${route.path}`, async () => {
   const article = await queryCollection('blog')
@@ -174,8 +193,30 @@ const { data: relatedPosts } = await useAsyncData(`blog-related:${route.path}`, 
   return entries
 })
 
-const canonicalUrl = computed(() => `${siteUrl}${route.path}`)
-const ogImage = computed(() => post.value?.image || `${siteUrl}/favicon-32x32.png?v=20260603`)
+const canonicalUrl = computed(() => buildCanonicalUrl(route.path))
+const ogImage = computed(() => post.value?.image || `${SITE_URL}/favicon-32x32.png?v=20260603`)
+const metadataBySlug: Record<string, { title: string, description?: string }> = {
+  'seo-vs-paid-ads-which-is-better': {
+    title: 'SEO vs Paid Ads: Which Is Better? | The Froggy Studio',
+  },
+  'what-is-aio-and-why-it-matters': {
+    title: 'What Is AIO and Why It Matters | The Froggy Studio',
+  },
+  'industrial-website-aio-for-manufacturers': {
+    title: 'AIO for Manufacturers | The Froggy Studio',
+  },
+}
+const metaTitle = computed(() =>
+  metadataBySlug[slugPath.value]?.title || `${post.value?.title} | The Froggy Studio`,
+)
+const metaDescription = computed(() =>
+  metadataBySlug[slugPath.value]?.description || post.value?.description || post.value?.excerpt || '',
+)
+const faqEntities = computed(() =>
+  Array.isArray(post.value?.faq)
+    ? post.value.faq.filter((item: { question?: string, answer?: string }) => item?.question && item?.answer)
+    : [],
+)
 const metadataChipClasses = {
   published: 'bg-primary text-text',
   updated: 'bg-tertiary text-text-inverse',
@@ -194,7 +235,7 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Article',
+        '@type': 'BlogPosting',
         headline: post.value?.title,
         description: post.value?.description,
         datePublished: post.value?.date,
@@ -206,28 +247,76 @@ useHead({
         publisher: {
           '@type': 'Organization',
           name: 'The Froggy Studio',
-          url: siteUrl,
+          url: SITE_URL,
         },
-        mainEntityOfPage: canonicalUrl.value,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl.value,
+        },
         image: ogImage.value,
       }),
     },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: SITE_URL,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Blog',
+            item: buildCanonicalUrl('/blog'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: post.value?.title,
+            item: canonicalUrl.value,
+          },
+        ],
+      }),
+    },
+    ...(faqEntities.value.length
+      ? [{
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqEntities.value.map((item: { question: string, answer: string }) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+              },
+            })),
+          }),
+        }]
+      : []),
   ],
 })
 
 useSeoMeta({
-  title: () => `${post.value?.title} | The Froggy Studio`,
-  description: () => post.value?.description || post.value?.excerpt || '',
-  ogTitle: () => post.value?.title || 'The Froggy Studio Blog',
-  ogDescription: () => post.value?.description || post.value?.excerpt || '',
+  title: () => metaTitle.value,
+  description: () => metaDescription.value,
+  ogTitle: () => metaTitle.value,
+  ogDescription: () => metaDescription.value,
   ogType: 'article',
   ogUrl: () => canonicalUrl.value,
   ogImage: () => ogImage.value,
   ogImageAlt: () => post.value?.imageAlt || post.value?.title || 'The Froggy Studio article',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => post.value?.title || 'The Froggy Studio Blog',
-  twitterDescription: () => post.value?.description || post.value?.excerpt || '',
+  twitterTitle: () => metaTitle.value,
+  twitterDescription: () => metaDescription.value,
   twitterImage: () => ogImage.value,
+  robots: INDEXABLE_ROBOTS,
 })
 
 function formatDate(value: string) {

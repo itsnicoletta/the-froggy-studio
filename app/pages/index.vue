@@ -43,7 +43,7 @@
           >
             <div class="hero-copy relative z-10 space-y-5 md:space-y-6">
               <p class="eyebrow border-white/15 bg-white/10 text-text-inverse">
-                Design brand new with
+                Web design, UX/UI and brand clarity
               </p>
 
               <div class="max-w-2xl">
@@ -51,15 +51,16 @@
               </div>
 
               <p class="max-w-xl text-[0.95rem] leading-7 text-text-muted sm:text-base">
-                We are a <strong>creative and marketing agency in Sri Lanka</strong> helping
-                <strong>standout brands</strong> launch <strong>bold Websites</strong> with clear
-                positioning, strong design, and <strong>SEO foundations</strong> that are ready
-                from day one.
+                We are a <strong>digital design studio and web design agency</strong> helping
+                businesses build <strong>websites, UX/UI, brand identity, content, and digital strategy</strong>
+                that feel clear, trustworthy, and ready to guide the right next step.
               </p>
 
               <div class="flex flex-wrap gap-3">
-                <BaseButton href="#contact">Let&apos;s talk</BaseButton>
+                <BaseButton href="#contact">Start a project</BaseButton>
                 <BaseButton href="#services" variant="outlineInverse">Explore services</BaseButton>
+                <BaseButton href="/projects" variant="outlineInverse">See the projects</BaseButton>
+                <BaseButton href="/blog" variant="outlineInverse">Read our SEO insights</BaseButton>
               </div>
             </div>
 
@@ -160,6 +161,90 @@
         </div>
       </section>
 
+      <section id="selected-work" class="site-shell py-8 md:py-10">
+        <div class="space-y-5 md:space-y-6">
+          <div class="max-w-3xl space-y-3 px-1">
+            <p class="eyebrow bg-card text-text">Selected work</p>
+            <h2 class="text-[2.35rem] leading-[0.92] sm:text-6xl">Selected work</h2>
+            <p class="max-w-2xl text-[0.98rem] leading-7 text-text/75 sm:text-base">
+              A mix of client projects, internal products and concept work that shows how we think, design and build.
+            </p>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <article
+              v-for="item in selectedWorkCards"
+              :key="item.title"
+              class="panel-card flex h-full flex-col overflow-hidden bg-card p-5 md:p-6"
+            >
+              <div class="space-y-4">
+                <div class="flex flex-wrap gap-2">
+                  <span class="project-chip">{{ item.label }}</span>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="text-[1.8rem] leading-[0.94] sm:text-[2.1rem]">{{ item.title }}</h3>
+                </div>
+
+                <p class="text-[0.96rem] leading-7 text-text/75">{{ item.description }}</p>
+
+                <ul class="space-y-2 text-sm leading-7 text-text/72">
+                  <li v-for="line in item.details" :key="line">{{ line }}</li>
+                </ul>
+
+                <div
+                  v-if="item.metrics?.length"
+                  class="grid gap-3 sm:grid-cols-2"
+                >
+                  <div
+                    v-for="metric in item.metrics"
+                    :key="metric.label"
+                    class="rounded-[1.25rem] border-2 border-border bg-accent-soft px-4 py-3"
+                  >
+                    <p class="text-xl font-black leading-none sm:text-2xl">{{ metric.value }}</p>
+                    <p class="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-text/55">
+                      {{ metric.label }}
+                    </p>
+                  </div>
+                </div>
+
+                <p v-if="item.period" class="text-sm text-text/70">
+                  {{ item.period }}
+                </p>
+
+                <p v-if="item.note" class="text-sm font-bold text-text/80">
+                  {{ item.note }}
+                </p>
+              </div>
+
+              <div class="mt-auto pt-5">
+                <BaseButton
+                  v-if="item.href"
+                  :href="item.href"
+                  :target="item.external ? '_blank' : undefined"
+                  :rel="item.external ? 'noopener noreferrer' : undefined"
+                  variant="outline"
+                >
+                  {{ item.linkLabel }}
+                </BaseButton>
+                <p v-else class="text-sm font-bold text-text/70">
+                  {{ item.linkLabel }}
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel-card bg-card px-5 py-6 text-center md:px-8 md:py-7">
+            <p class="mx-auto max-w-2xl text-[0.98rem] leading-7 text-text/75 sm:text-base">
+              Need something similar? Let&apos;s build a clearer digital presence for your brand.
+            </p>
+            <div class="pt-4">
+              <BaseButton href="/contact">Start a project</BaseButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="faq" class="site-shell py-8 md:py-10">
         <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
           <div class="faq-panel panel-card p-7 md:p-8">
@@ -186,10 +271,10 @@
         <div class="panel-card grid gap-8 bg-card p-5 md:p-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10 lg:p-10">
           <div class="space-y-5">
             <h2 class="text-[2rem] leading-[0.96] sm:mt-4 sm:text-5xl">
-              Let&apos;s build something good.
+              Start a project with The Froggy Studio.
             </h2>
             <p class="max-w-md text-[0.95rem] leading-7 text-text/75">
-              Tell us <strong>what you need help with</strong> and we will come back with <strong>a clear next step</strong>.
+              Tell us <strong>what you are building, improving, or trying to clarify</strong> and we will come back with <strong>a clear next step</strong>.
             </p>
 
             <ul class="space-y-2 pt-1 text-sm leading-7 text-text/75">
@@ -227,7 +312,7 @@
 
             <div class="space-y-2 px-1">
               <p class="max-w-lg text-sm leading-6 text-text/70">
-                Pick the service and tell us <strong>what you want to do</strong>.
+                Pick the service and tell us <strong>what you want the website, brand, or digital experience to do better</strong>.
               </p>
             </div>
 
@@ -286,7 +371,7 @@
 
             <div class="pt-1">
               <BaseButton type="submit">
-                {{ isSubmittingContactForm ? 'Sending...' : 'Send request' }}
+                {{ isSubmittingContactForm ? 'Sending...' : 'Start project' }}
               </BaseButton>
             </div>
           </form>
@@ -374,6 +459,7 @@ import ranaBlu from '~/assets/rana-blu.svg'
 import ranaVerde from '~/assets/rana-verde.svg'
 import ranaViola from '~/assets/rana-viola.svg'
 import froggyAnimation from '~/assets/the froggy animation.json'
+import { INDEXABLE_ROBOTS, SITE_URL } from '~~/utils/site'
 
 const route = useRoute()
 const router = useRouter()
@@ -382,26 +468,25 @@ const consentMaxAge = 60 * 60 * 24 * 180
 const heroAnimationContainer = ref<HTMLElement | null>(null)
 let destroyHeroAnimation: (() => void) | null = null
 
-const siteUrl = 'https://thefroggystudio.com'
-const canonicalUrl = `${siteUrl}/`
-const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
+const canonicalUrl = `${SITE_URL}/`
+const ogImage = `${SITE_URL}/favicon-32x32.png?v=20260603`
 const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${siteUrl}/#website`,
+    '@id': `${SITE_URL}/#website`,
     url: canonicalUrl,
     name: 'The Froggy Studio',
     inLanguage: 'en',
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${siteUrl}/#organization`,
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
     name: 'The Froggy Studio',
     url: canonicalUrl,
     image: ogImage,
-    email: 'mailto:thefroggystudiosl@gmail.com',
+    email: 'thefroggystudiosl@gmail.com',
     description:
       'Creative and marketing agency in Sri Lanka for Art Direction, Websites, Marketing, Product Design, and SEO-ready digital experiences.',
     areaServed: [
@@ -427,6 +512,14 @@ const structuredData = [
       'Art direction',
       'Product design',
     ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'thefroggystudiosl@gmail.com',
+        availableLanguage: ['en'],
+      },
+    ],
   },
 ]
 
@@ -440,7 +533,7 @@ useHead({
   meta: [
     {
       name: 'robots',
-      content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+      content: INDEXABLE_ROBOTS,
     },
     { name: 'theme-color', content: '#000000' },
   ],
@@ -453,12 +546,12 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Marketing Agency in Sri Lanka for Web Design, Branding & SEO | The Froggy Studio',
+  title: 'Web Design, UX/UI & Branding Agency | The Froggy Studio',
   description:
-    'The Froggy Studio is a marketing agency in Sri Lanka helping brands launch bold websites, stronger positioning, and clear digital experiences through Art Direction, Marketing, Product Design, and SEO-ready execution.',
-  ogTitle: 'Marketing Agency in Sri Lanka for Web Design, Branding & SEO | The Froggy Studio',
+    'The Froggy Studio helps businesses build clear, trustworthy digital experiences through web design, UX/UI, brand identity, content and digital strategy.',
+  ogTitle: 'Web Design, UX/UI & Branding Agency | The Froggy Studio',
   ogDescription:
-    'Marketing agency in Sri Lanka for Art Direction, Web Design, Marketing, and Product Design. Built for brands that want clarity, personality, and growth.',
+    'The Froggy Studio helps businesses build clear, trustworthy digital experiences through web design, UX/UI, brand identity, content and digital strategy.',
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
@@ -466,9 +559,9 @@ useSeoMeta({
   ogSiteName: 'The Froggy Studio',
   ogLocale: 'en_LK',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'The Froggy Studio | Marketing Agency in Sri Lanka',
+  twitterTitle: 'Web Design, UX/UI & Branding Agency | The Froggy Studio',
   twitterDescription:
-    'Marketing agency in Sri Lanka for bold websites, clearer positioning, SEO-ready structure, and creative digital systems.',
+    'The Froggy Studio helps businesses build clear, trustworthy digital experiences through web design, UX/UI, brand identity, content and digital strategy.',
   twitterImage: ogImage,
 })
 
@@ -549,7 +642,7 @@ const serviceCards = [
     noteTone: 'text-text-inverse/80',
     accordionSummaryClass: 'bg-card text-text',
     accordionIconClass: 'bg-secondary text-text-inverse',
-    body: 'We build Websites that feel bold but stay practical: <strong>clean structure, reusable components, strong pacing</strong>, and a foundation that supports SEO from the start.',
+    body: 'We build Websites that feel bold but stay practical: <strong>clean structure, reusable components, strong pacing</strong>, and a foundation that supports SEO from the start. <strong>UX/UI</strong> means shaping how the site looks and how easy it feels to use.',
     note: 'The goal is not just a pretty page. It is a site that feels <strong>easy to use, easy to grow, and easy to find</strong>.',
     items: [
       {
@@ -565,7 +658,7 @@ const serviceCards = [
       {
         title: 'Where does SEO fit in?',
         content:
-          'SEO starts with <strong>clear page structure and clear content</strong>. We think about that from the beginning, so search engines and real people can both understand the Website more easily.',
+          'SEO starts with <strong>clear page structure and clear content</strong>. We think about that from the beginning, so search engines and real people can both understand the Website more easily. Search intent simply means understanding what someone is actually trying to find when they land on a page.',
       },
     ],
   },
@@ -578,7 +671,7 @@ const serviceCards = [
     noteTone: 'text-text-inverse/80',
     accordionSummaryClass: 'bg-card text-text',
     accordionIconClass: 'bg-tertiary text-text-inverse',
-    body: 'Marketing is not filler copy or louder captions. It is the system that helps the right people <strong>understand your offer, trust your value, and move closer to action</strong>.',
+    body: 'Marketing is not filler copy or louder captions. It is the system that helps the right people <strong>understand your offer, trust your value, and move closer to action</strong>. <strong>Content strategy</strong> means deciding what each page or message needs to say and why.',
     note: 'We focus on <strong>messaging, structure, and conversion paths</strong> that support growth instead of adding noise.',
     items: [
       {
@@ -613,7 +706,7 @@ const serviceCards = [
       {
         title: 'What is Product Design?',
         content:
-          'Product Design is about <strong>how a digital product works and feels to use</strong>. It includes screens, buttons, user flows, and the rules that keep everything clear and consistent.',
+          'Product Design is about <strong>how a digital product works and feels to use</strong>. It includes screens, buttons, user flows, and the rules that keep everything clear and consistent. UX/UI is the practical side of that experience: how clear the interface feels and how easily people can move through it.',
       },
       {
         title: 'Why is it more than just visuals?',
@@ -624,6 +717,35 @@ const serviceCards = [
         title: 'How do we keep it simple and usable?',
         content:
           'We build the smallest system that works well: <strong>clear building blocks, simple rules, and room to grow</strong>. This makes the product easier to manage over time.',
+      },
+    ],
+  },
+  {
+    title: 'AI Chatbots',
+    eyebrow: 'Useful automation',
+    tone: 'bg-quaternary text-text-inverse',
+    eyebrowTone: 'bg-card text-text',
+    bodyTone: 'text-text-inverse',
+    noteTone: 'text-text-inverse/80',
+    accordionSummaryClass: 'bg-card text-text',
+    accordionIconClass: 'bg-primary text-text',
+    body: 'We design and build <strong>AI chatbots and assistants</strong> that help businesses answer common questions, guide leads, and support customer communication in a clearer way.',
+    note: 'The goal is not adding AI for show. It is using it where it can <strong>save time, reduce friction, and make conversations easier to handle</strong>.',
+    items: [
+      {
+        title: 'What can an AI chatbot do?',
+        content:
+          'An AI chatbot can help with <strong>frequently asked questions, lead qualification, appointment guidance, and first-contact support</strong>, so people can get answers faster.',
+      },
+      {
+        title: 'Who is this useful for?',
+        content:
+          'It is useful for businesses that get repeated questions, need help handling incoming enquiries, or want a simpler way to support visitors <strong>outside normal working hours</strong>.',
+      },
+      {
+        title: 'How do we build them?',
+        content:
+          'We shape the chatbot around <strong>real business needs, clear conversation paths, and the right information sources</strong> so it feels useful instead of generic.',
       },
     ],
   },
@@ -765,6 +887,68 @@ const cookiePolicyContent = `
 const openServiceAccordions = reactive<Record<string, string | null>>(
   Object.fromEntries(serviceCards.map((service) => [service.title, null])),
 )
+
+const selectedWorkCards = [
+  {
+    title: 'The Ring Experience',
+    label: 'Published Client Website',
+    description:
+      'A clean website for a jewellery workshop experience in Sri Lanka, built with Vue, Sanity CMS and a clear content structure.',
+    details: [
+      'Services: Web design, Vue development, CMS setup',
+      'Tools: Vue, Sanity, Figma, Cloudflare Pages',
+      'Proof: Live client website + positive Google reviews',
+    ],
+    href: 'https://www.theringexperience.lk',
+    linkLabel: 'View live website',
+    external: true,
+  },
+  {
+    title: 'Atlas Pro',
+    label: 'Ongoing Social Media Management',
+    description:
+      'Social media management and advertising support for a parkour and youth activity program.',
+    details: [
+      'Services: Content planning, captions, short-form content direction, ads support',
+    ],
+    metrics: [
+      { label: 'Views', value: '33.3K' },
+      { label: 'Reach', value: '17.8K' },
+      { label: 'Content interactions', value: '436' },
+      { label: 'Instagram link clicks', value: '355' },
+    ],
+    period: 'May 13, 2026 - June 9, 2026',
+    note: '79 Instagram profile visits in the same period.',
+    href: 'https://www.instagram.com/atlasprosocials?igsh=bDkyajk3M2s2cGd5',
+    linkLabel: 'View Atlas Pro on Instagram',
+    external: true,
+  },
+  {
+    title: 'The Secret Garden',
+    label: 'Completed Internal Product',
+    description:
+      'A mood tracking desktop app designed as a small emotional diary where users plant flowers and build a visual memory of their week.',
+    details: [
+      'Services: Product concept, UI design, front-end development, local data structure, app packaging',
+      'Tools: HTML, CSS, JavaScript, GitHub',
+    ],
+    note: 'Completed desktop app. Internal product, not client work.',
+    linkLabel: 'GitHub release coming soon',
+  },
+  {
+    title: 'Focum',
+    label: 'Concept Brand Identity',
+    description:
+      'A premium brand identity concept for firelighter products, designed around glamping, outdoor rituals and packaging direction.',
+    details: [
+      'Services: Brand strategy, naming direction, visual identity, brand bible',
+      'Tools: Figma, Illustrator, InDesign',
+    ],
+    note: 'Concept project, not client work.',
+    href: '/projects/brand-identity-design-for-fire-starter-company',
+    linkLabel: 'View concept',
+  },
+]
 
 onMounted(() => {
   cookieConsent.value = readConsentCookie()

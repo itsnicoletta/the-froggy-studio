@@ -17,6 +17,9 @@
                 We publish clear, practical content for businesses that want to get found,
                 explain what they do better, and turn more visits into real enquiries.
               </p>
+              <p class="text-sm font-bold uppercase tracking-[0.16em] text-text-muted">
+                Written and reviewed by The Froggy Studio.
+              </p>
             </div>
           </div>
         </div>
@@ -52,6 +55,7 @@
                   {{ post.category }}
                 </span>
                 <p>{{ formatDate(post.date) }}</p>
+                <p>{{ post.author }}</p>
               </div>
 
               <div class="space-y-4">
@@ -79,9 +83,10 @@
 </template>
 
 <script setup lang="ts">
-const siteUrl = 'https://thefroggystudio.com'
-const canonicalUrl = `${siteUrl}/blog`
-const ogImage = `${siteUrl}/favicon-32x32.png?v=20260603`
+import { buildCanonicalUrl, INDEXABLE_ROBOTS, SITE_URL } from '~~/utils/site'
+
+const canonicalUrl = buildCanonicalUrl('/blog')
+const ogImage = `${SITE_URL}/favicon-32x32.png?v=20260603`
 
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryCollection('blog')
@@ -114,10 +119,10 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Blog | Websites, SEO, AI & Brand Clarity | The Froggy Studio',
+  title: 'Blog | Web Design, SEO & AIO Insights | The Froggy Studio',
   description:
     'Practical articles from The Froggy Studio about websites, SEO, AI-ready content, brand clarity, and digital decisions that help businesses get found.',
-  ogTitle: 'The Froggy Studio Blog',
+  ogTitle: 'Blog | Web Design, SEO & AIO Insights | The Froggy Studio',
   ogDescription:
     'Articles about websites, SEO, AI-ready content, and clearer digital strategy for growing brands.',
   ogType: 'website',
@@ -125,10 +130,11 @@ useSeoMeta({
   ogImage,
   ogImageAlt: 'The Froggy Studio frogs illustration',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'The Froggy Studio Blog',
+  twitterTitle: 'Blog | Web Design, SEO & AIO Insights | The Froggy Studio',
   twitterDescription:
     'Practical articles on websites, SEO, AI-ready content, and digital growth.',
   twitterImage: ogImage,
+  robots: INDEXABLE_ROBOTS,
 })
 
 function formatDate(value: string) {

@@ -8,6 +8,13 @@ category: Branding
 question: Why should my business invest in art direction?
 author: The Froggy Studio
 published: true
+faq:
+  - question: Why does art direction matter for a business?
+    answer: Art direction shapes how consistent, credible, and intentional the business feels before people even start reading in detail.
+  - question: Is art direction only about making things look nicer?
+    answer: No. It also helps the brand communicate more clearly, feel more trustworthy, and become easier to remember.
+  - question: When does art direction matter most?
+    answer: It matters most when a business wants stronger consistency, clearer positioning, and a more confident presence across websites, social content, and campaigns.
 ---
 
 Design is not just decoration.
@@ -51,3 +58,19 @@ When several businesses say similar things, the way the brand feels becomes part
 The real goal is not just to look nicer.
 
 It is to make the brand clearer, stronger, and more distinct across every place people encounter it, from the website to social content to campaigns and presentations.
+
+If your brand looks inconsistent across the website and marketing materials, The Froggy Studio can help build a clearer visual direction around it.
+
+## FAQ
+
+### Why does art direction matter for a business?
+
+Art direction shapes how consistent, credible, and intentional the business feels before people even start reading in detail.
+
+### Is art direction only about making things look nicer?
+
+No. It also helps the brand communicate more clearly, feel more trustworthy, and become easier to remember.
+
+### When does art direction matter most?
+
+It matters most when a business wants stronger consistency, clearer positioning, and a more confident presence across websites, social content, and campaigns.

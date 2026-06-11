@@ -932,8 +932,10 @@ const selectedWorkCards = [
       'Services: Product concept, UI design, front-end development, local data structure, app packaging',
       'Tools: HTML, CSS, JavaScript, GitHub',
     ],
-    note: 'Completed desktop app. Internal product, not client work.',
-    linkLabel: 'GitHub release coming soon',
+    note: 'Completed desktop app. Windows installer and portable release available.',
+    href: 'https://github.com/thefroggystudiosl/The-Secret-Garden-/releases/download/V1-0-0/Secret.Garden.Setup.0.0.0.exe',
+    linkLabel: 'Download Windows installer',
+    external: true,
   },
   {
     title: 'Focum',

@@ -34,6 +34,11 @@ export type ProjectGalleryItem = {
   caption?: string
 }
 
+export type ProjectDownloadLink = {
+  label: string
+  url: string
+}
+
 export type ProjectEntry = {
   id: string
   title: string
@@ -47,6 +52,7 @@ export type ProjectEntry = {
   collaboration?: string
   websiteUrl?: string
   ctaLabel?: string
+  downloadLinks?: ProjectDownloadLink[]
   conversationCTA?: string
   proofNote?: string
   videoUrl?: string
@@ -263,7 +269,17 @@ export const projects: ProjectEntry[] = [
     scope:
       'Product concept, UX/UI design, visual identity direction, front-end development, local-first data structure, Electron packaging, and release preparation.',
     conversationCTA: 'Have a product idea?',
-    proofNote: 'Completed desktop app. Internal product, not client work.',
+    proofNote: 'Completed desktop app with public Windows installer and portable release available.',
+    downloadLinks: [
+      {
+        label: 'Download Windows installer',
+        url: 'https://github.com/thefroggystudiosl/The-Secret-Garden-/releases/download/V1-0-0/Secret.Garden.Setup.0.0.0.exe',
+      },
+      {
+        label: 'Download portable app',
+        url: 'https://github.com/thefroggystudiosl/The-Secret-Garden-/releases/download/V1-0-0/Secret.Garden.portable.0.0.0.exe',
+      },
+    ],
     videoUrl: theSecretVideo,
     coverImage: theSecretCover,
     coverImageAlt: 'The Secret Garden desktop app project cover image',
@@ -325,7 +341,7 @@ export const projects: ProjectEntry[] = [
       'It was designed to move away from the cold, analytical feeling of traditional mood trackers and replace it with a softer, more personal ritual.',
       'Users can plant one mood per day, write a private note, and slowly build a weekly garden that reflects their emotional pattern over time.',
       'The completed build includes Garden, Diary, and Stats sections, onboarding, settings, optional reminders, local-first storage, and a packaged Electron desktop app.',
-      'The current next step is preparing the public GitHub release.',
+      'The Windows installer and portable app are available through the public GitHub release.',
     ],
   },
   {

@@ -64,6 +64,16 @@
               >
                 {{ project.ctaLabel || 'Open project link' }}
               </BaseButton>
+              <BaseButton
+                v-for="download in project.downloadLinks || []"
+                :key="download.url"
+                :href="download.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlineInverse"
+              >
+                {{ download.label }}
+              </BaseButton>
               <BaseButton href="/#contact">
                 {{ project.conversationCTA || 'Need something similar?' }}
               </BaseButton>

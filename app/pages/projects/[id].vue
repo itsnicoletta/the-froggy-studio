@@ -441,6 +441,11 @@ const projectMetadata: Record<string, { title: string, description: string }> = 
     description:
       'Atlas Pro is an ongoing social media management project for a parkour and youth activity program, supported by The Froggy Studio through content planning, captions, campaign direction and paid ads support.',
   },
+  noboard: {
+    title: 'NoBoard | Local-first Desktop Task Manager | The Froggy Studio',
+    description:
+      'NoBoard is a local-first desktop task manager designed and developed by The Froggy Studio with Vue 3, TypeScript, Tailwind CSS and Electron.',
+  },
 }
 const metadata = projectMetadata[project.id] || {
   title: `${project.title} | Project | The Froggy Studio`,

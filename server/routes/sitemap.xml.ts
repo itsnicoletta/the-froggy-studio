@@ -20,6 +20,7 @@ export default defineEventHandler(async (event) => {
     '/projects/theringexperience',
     '/projects/brand-identity-design-for-fire-starter-company',
     '/projects/secret-garden',
+    '/projects/noboard',
     '/projects/atlas-pro',
   ]
 

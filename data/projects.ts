@@ -12,6 +12,11 @@ import atlasCover from './project-assets/atlas_cover.webp'
 import atlasGallery1 from './project-assets/atlas_1.webp'
 import atlasGallery2 from './project-assets/atlas_2.webp'
 import atlasGallery3 from './project-assets/atlas_3.webp'
+import noBoardCover from './project-assets/NoBoard_cover.webp'
+import noBoardGallery1 from './project-assets/NoBoard_1.webp'
+import noBoardGallery2 from './project-assets/NoBoard_2.webp'
+import noBoardGallery3 from './project-assets/NoBoard_3.webp'
+import noBoardGallery4 from './project-assets/NoBoard_4.webp'
 import theSecretCover from './project-assets/Thesecret_cover.webp'
 import theSecretGallery1 from './project-assets/Thesecret_1.webp'
 import theSecretGallery2 from './project-assets/Thesecret_2.webp'
@@ -429,13 +434,110 @@ export const projects: ProjectEntry[] = [
         alt: 'Atlas Pro Instagram account growth and content direction',
       },
     ],
-    order: 4,
+    order: 5,
     published: true,
     content: [
       'Atlas Pro is a parkour and youth activity program and an ongoing client project supported by The Froggy Studio.',
       'The work focuses on building a clearer and more consistent social media presence through content planning, short-form content direction, captions, campaign support, and paid advertising support.',
       'Between May 13, 2026 and June 9, 2026, Atlas Pro recorded 33.3K views, 17.8K reach, 436 content interactions, 355 Instagram link clicks, and 79 Instagram profile visits.',
       'The Froggy Studio helped make the brand more visible, easier to understand, and more consistent across Instagram for both young athletes and parents.',
+    ],
+  },
+  {
+    id: 'noboard',
+    title: 'NoBoard',
+    searchIntentLabel: 'Internal Product',
+    industry: 'Local-first desktop task manager',
+    status: 'Prepared for release',
+    servicesDelivered: [
+      'Product concept',
+      'UX/UI design',
+      'Visual direction',
+      'Vue development',
+      'Local-first architecture',
+      'Electron packaging',
+      'Update system setup',
+    ],
+    toolsUsed: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Electron'],
+    summary:
+      'A local-first desktop task manager for freelancers, solo professionals, and small teams who need client, deadline, priority, status, and task type without a heavy productivity platform.',
+    scope:
+      'Product concept, UX/UI design, Vue 3 and TypeScript development, Tailwind CSS interface build, local-first data structure, Electron packaging, update manifest setup, and release preparation.',
+    conversationCTA: 'Have a desktop app idea?',
+    proofNote:
+      'Designed, developed, packaged, and prepared for release by The Froggy Studio.',
+    coverImage: noBoardCover,
+    coverImageAlt: 'NoBoard desktop task manager project cover image',
+    coverAspectRatio: '16 / 9',
+    coverObjectPosition: 'center center',
+    tags: ['Desktop app', 'Internal product', 'Local-first'],
+    accordion: [
+      {
+        title: 'What it solves',
+        content:
+          'NoBoard was created for people who manage real work every day but do not want to depend on team-first, cloud-heavy, subscription productivity platforms.',
+      },
+      {
+        title: 'How it stays focused',
+        content:
+          'The app keeps the user close to the information that matters most: client, deadline, priority, status, and task type.',
+      },
+      {
+        title: 'How it protects control',
+        content:
+          'NoBoard keeps task data on the user\'s device, while the update system checks a remote manifest hosted by The Froggy Studio.',
+      },
+    ],
+    highlights: [
+      {
+        title: 'Local-first',
+        content:
+          'User data stays on the device, giving the product a private and direct desktop workflow.',
+      },
+      {
+        title: 'Focused tasks',
+        content:
+          'Tasks can be organised by client, deadline, priority, status, and work type, with calendar views and public holiday awareness.',
+      },
+      {
+        title: 'Release ready',
+        content:
+          'The product was built with Vue 3, TypeScript, Tailwind CSS, and Electron, then prepared as a packaged desktop application.',
+      },
+    ],
+    gallery: [
+      {
+        src: noBoardGallery1,
+        alt: 'NoBoard desktop app task overview screen',
+      },
+      {
+        src: noBoardGallery2,
+        alt: 'NoBoard task management interface with local-first workspace',
+      },
+      {
+        src: noBoardGallery3,
+        alt: 'NoBoard calendar and task organisation view',
+      },
+      {
+        src: noBoardGallery4,
+        alt: 'NoBoard settings and interface options screen',
+      },
+    ],
+    order: 4,
+    published: true,
+    content: [
+      'NoBoard is a local-first desktop task manager designed and developed by The Froggy Studio.',
+      'The product was created for people who manage real work every day but do not want to depend on another complex productivity platform.',
+      'Instead of building a heavy project management system, the focus was clarity, speed, and local control.',
+      'Many task management tools are built around teams, cloud accounts, subscriptions, boards, automations, and complex workflows.',
+      'For freelancers, solo professionals, and small teams, this can become too much because the tool starts to require more management than the work itself.',
+      'NoBoard answers a simpler question: what does someone actually need to see to stay on top of their work?',
+      'The answer shaped the product around client, deadline, priority, status, and task type.',
+      'The app gives users a focused desktop workspace where they can organise tasks without logging in, syncing data to the cloud, or setting up a complicated system.',
+      'The visual direction is intentionally warm and minimal, with a dark earthy interface, clear contrast, structured cards, and simple navigation.',
+      'NoBoard includes local data persistence, multilingual interface options, theme settings, manual interface direction, calendar views, public holiday awareness, and update checking.',
+      'Every feature was added to help the user understand what needs attention without adding unnecessary friction.',
+      'The result is a small but complete digital product: clear in purpose, simple in use, and carefully shaped from brand idea to working software.',
     ],
   },
 ]

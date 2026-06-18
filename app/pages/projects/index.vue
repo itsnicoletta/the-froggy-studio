@@ -138,10 +138,10 @@ useHead({
 useSeoMeta({
   title: 'Projects | The Froggy Studio',
   description:
-    'Selected website and brand identity projects from The Froggy Studio.',
+    'Selected websites, brand identities, desktop apps, and digital product projects from The Froggy Studio.',
   ogTitle: 'Projects | The Froggy Studio',
   ogDescription:
-    'Selected website and brand identity projects from The Froggy Studio.',
+    'Selected websites, brand identities, desktop apps, and digital product projects from The Froggy Studio.',
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage,
@@ -149,7 +149,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Projects | The Froggy Studio',
   twitterDescription:
-    'Selected website and brand identity projects from The Froggy Studio.',
+    'Selected websites, brand identities, desktop apps, and digital product projects from The Froggy Studio.',
   twitterImage: ogImage,
   robots: INDEXABLE_ROBOTS,
 })
